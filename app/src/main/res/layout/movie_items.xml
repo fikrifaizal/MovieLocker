@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:cardCornerRadius="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:contentDescription="@string/imageview_of_poster"
+            tools:ignore="ImageContrastCheck" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/TextColor.Black.RowMedium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:maxLines="2"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/cv_poster"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Title" />
+
+    <ImageView
+        android:id="@+id/icon_rating"
+        style="@style/Icon"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_star_fill"
+        app:layout_constraintStart_toEndOf="@+id/cv_poster"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        android:contentDescription="@string/icon_vote_average" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        style="@style/TextColor.Black.Small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/icon_rating"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="Vote Average" />
+</androidx.constraintlayout.widget.ConstraintLayout>
