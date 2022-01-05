@@ -11,4 +11,8 @@ class DetailActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
 }

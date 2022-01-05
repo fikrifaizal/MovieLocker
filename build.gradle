@@ -12,6 +12,7 @@ buildscript {
         materialVersion = '1.4.0'
         recyclerViewVersion = '1.2.1'
         glideVersion = '4.12.0'
+        viewPagerVersion = '1.0.0'
 
         // architecture
         viewModelVersion = '2.4.0'
