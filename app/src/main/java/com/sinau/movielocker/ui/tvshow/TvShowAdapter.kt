@@ -12,7 +12,6 @@ import com.sinau.movielocker.databinding.MovieItemsBinding
 import com.sinau.movielocker.ui.detail.DetailActivity
 
 class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
-
     private var listTvShow = ArrayList<TvShowEntity>()
 
     fun setTvShow(tvShow: List<TvShowEntity>?) {
@@ -34,7 +33,7 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
                     .into(ivPoster)
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
-                    intent.putExtra(DetailActivity.EXTRA_DATA, tvShow.tvShowId)
+                    intent.putExtra(DetailActivity.EXTRA_TV, tvShow.tvShowId)
                     itemView.context.startActivity(intent)
                 }
             }

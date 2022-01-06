@@ -10,5 +10,6 @@ data class MovieEntity (
     var overview: String,
     var releaseDate: String,
     var posterPath: String,
+    var backdropPath: String,
     var voteAverage: Double
 ) : Parcelable

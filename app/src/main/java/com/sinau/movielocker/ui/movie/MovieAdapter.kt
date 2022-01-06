@@ -12,7 +12,6 @@ import com.sinau.movielocker.databinding.MovieItemsBinding
 import com.sinau.movielocker.ui.detail.DetailActivity
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-
     private var listMovie = ArrayList<MovieEntity>()
 
     fun setMovie(movie: List<MovieEntity>?) {
@@ -33,7 +32,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                     .into(ivPoster)
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
-                    intent.putExtra(DetailActivity.EXTRA_DATA, movie.movieId)
+                    intent.putExtra(DetailActivity.EXTRA_MOV, movie.movieId)
                     itemView.context.startActivity(intent)
                 }
             }

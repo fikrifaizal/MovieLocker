@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MovieLocker</string>
+    <string name="detail_title">Detail</string>
 
     <!--  SectionsPagerAdapter  -->
     <string name="movie">Movie</string>
@@ -7,5 +8,7 @@
 
     <!--  ImageView contentDescription  -->
     <string name="imageview_of_poster">ImageView of Poster</string>
+    <string name="imageview_of_backdrop">ImageView of Backdrop</string>
+    <string name="imageview_of_gradient">ImageView of Gradient</string>
     <string name="icon_vote_average">Icon Vote Average</string>
 </resources>
