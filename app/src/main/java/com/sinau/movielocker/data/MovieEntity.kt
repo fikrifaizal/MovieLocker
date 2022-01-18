@@ -9,6 +9,7 @@ data class MovieEntity (
     var title: String,
     var overview: String,
     var releaseDate: String,
+    var duration: String,
     var posterPath: String,
     var backdropPath: String,
     var voteAverage: Double

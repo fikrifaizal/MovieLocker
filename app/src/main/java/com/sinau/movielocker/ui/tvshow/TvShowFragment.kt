@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinau.movielocker.databinding.FragmentTvShowBinding
-import com.sinau.movielocker.utils.DataDummy
 
 class TvShowFragment : Fragment() {
     private var _binding: FragmentTvShowBinding? = null
@@ -22,7 +22,9 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val tvShow = DataDummy.generateDummyTvShow()
+            val tvShowViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
+            val tvShow = tvShowViewModel.getTvShows()
+
             val tvShowAdapter = TvShowAdapter()
             tvShowAdapter.setTvShow(tvShow)
 

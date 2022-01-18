@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.MovieLocker" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/gray_600</item>
+        <item name="colorPrimaryVariant">@color/gray_700</item>
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Secondary brand color. -->
@@ -24,6 +24,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="TextColor.Gray" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/gray_500</item>
+    </style>
+
     <style name="TextColor.Black.Large">
         <item name="android:textSize">24sp</item>
     </style>
@@ -32,7 +36,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="TextColor.Black.RowMedium">
+    <style name="TextColor.Black.SemiMedium">
         <item name="android:textSize">16sp</item>
     </style>
 
@@ -40,9 +44,18 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="TextColor.Gray.Small">
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <!--  Icon  -->
-    <style name="Icon">
+    <style name="Icon" />
+    <style name="Icon.Small">
         <item name="android:layout_width">20dp</item>
         <item name="android:layout_height">20dp</item>
+    </style>
+    <style name="Icon.Large">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
     </style>
 </resources>

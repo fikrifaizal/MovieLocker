@@ -10,5 +10,15 @@
     <string name="imageview_of_poster">ImageView of Poster</string>
     <string name="imageview_of_backdrop">ImageView of Backdrop</string>
     <string name="imageview_of_gradient">ImageView of Gradient</string>
-    <string name="icon_vote_average">Icon Vote Average</string>
+    <string name="icon">Icon</string>
+
+    <!--  tools:text  -->
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+
+    <!--  Detail Activity  -->
+    <string name="release">Release Date</string>
+    <string name="rating">Rating</string>
+    <string name="duration">Duration</string>
+    <string name="overview">Overview</string>
+
 </resources>

@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinau.movielocker.databinding.FragmentMovieBinding
-import com.sinau.movielocker.utils.DataDummy
 
 class MovieFragment : Fragment() {
     private var _binding: FragmentMovieBinding? = null
@@ -22,7 +22,9 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val movies = DataDummy.generateDummyMovie()
+            val movieViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
+            val movies = movieViewModel.getMovies()
+
             val movieAdapter = MovieAdapter()
             movieAdapter.setMovie(movies)
 
