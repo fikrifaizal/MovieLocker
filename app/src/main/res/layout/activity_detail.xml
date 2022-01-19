@@ -81,28 +81,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginVertical="8dp"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <ImageView
                     style="@style/Icon.Large"
-                    android:src="@drawable/ic_calendar"
-                    android:contentDescription="@string/icon" />
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/ic_calendar" />
 
                 <TextView
+                    style="@style/TextColor.Gray.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextColor.Gray.Small"
                     android:layout_marginTop="4dp"
                     android:text="@string/release"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_date"
+                    style="@style/TextColor.Black.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextColor.Black.Small"
                     android:layout_marginTop="2dp"
                     android:textStyle="bold"
                     tools:text="01/01/2021" />
@@ -126,28 +126,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginVertical="8dp"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <ImageView
                     style="@style/Icon.Large"
-                    android:src="@drawable/ic_clock"
-                    android:contentDescription="@string/icon" />
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/ic_clock" />
 
                 <TextView
+                    style="@style/TextColor.Gray.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextColor.Gray.Small"
                     android:layout_marginTop="4dp"
                     android:text="@string/duration"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_duration"
+                    style="@style/TextColor.Black.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextColor.Black.Small"
                     android:layout_marginTop="2dp"
                     android:textStyle="bold"
                     tools:text="60h 60m" />
@@ -169,28 +169,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginVertical="8dp"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <ImageView
                     style="@style/Icon.Large"
-                    android:src="@drawable/ic_star_black"
-                    android:contentDescription="@string/icon" />
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/ic_star_black" />
 
                 <TextView
+                    style="@style/TextColor.Gray.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextColor.Gray.Small"
                     android:layout_marginTop="4dp"
                     android:text="@string/rating"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_rating"
+                    style="@style/TextColor.Black.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/TextColor.Black.Small"
                     android:layout_marginTop="2dp"
                     android:textStyle="bold"
                     tools:text="9.0 / 10" />
