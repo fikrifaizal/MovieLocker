@@ -19,6 +19,10 @@ buildscript {
         activityKtxVersion = '1.4.0'
         fragmentKtxVersion = '1.4.0'
 
+        // data
+        retrofitVersion = '2.9.0'
+        interceptorVersion = '4.9.0'
+
         // testing
         junitVersion = '4.13.2'
         junitExtversion = '1.1.3'
