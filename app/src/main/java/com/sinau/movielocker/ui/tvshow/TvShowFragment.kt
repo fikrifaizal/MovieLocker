@@ -1,5 +1,6 @@
 package com.sinau.movielocker.ui.tvshow
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinau.movielocker.databinding.FragmentTvShowBinding
+import com.sinau.movielocker.viewmodel.ViewModelFactory
 
 class TvShowFragment : Fragment() {
     private var _binding: FragmentTvShowBinding? = null
@@ -19,14 +21,20 @@ class TvShowFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val tvShowViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
-            val tvShow = tvShowViewModel.getTvShows()
-
+            val factory = ViewModelFactory.getInstance()
+            val tvShowViewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
             val tvShowAdapter = TvShowAdapter()
-            tvShowAdapter.setTvShow(tvShow)
+
+            tvShowViewModel.getTvShows().observe(viewLifecycleOwner, {tvShows ->
+                binding.progressBar.visibility = View.GONE
+                binding.rvTvShow.visibility = View.VISIBLE
+                tvShowAdapter.setTvShow(tvShows)
+                tvShowAdapter.notifyDataSetChanged()
+            })
 
             with(binding.rvTvShow) {
                 layoutManager = LinearLayoutManager(context)

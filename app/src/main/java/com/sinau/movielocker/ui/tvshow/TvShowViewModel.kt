@@ -1,9 +1,10 @@
 package com.sinau.movielocker.ui.tvshow
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.sinau.movielocker.data.TvShowEntity
-import com.sinau.movielocker.utils.DataDummy
+import com.sinau.movielocker.data.source.Repository
+import com.sinau.movielocker.data.source.local.entity.TvShowEntity
 
-class TvShowViewModel : ViewModel() {
-    fun getTvShows(): List<TvShowEntity> = DataDummy.generateDummyTvShow()
+class TvShowViewModel(private val repository: Repository) : ViewModel() {
+    fun getTvShows(): LiveData<List<TvShowEntity>> = repository.getAllTvShows()
 }

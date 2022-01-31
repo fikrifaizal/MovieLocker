@@ -1,41 +1,19 @@
 package com.sinau.movielocker.ui.detail
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.sinau.movielocker.data.MovieEntity
-import com.sinau.movielocker.data.TvShowEntity
-import com.sinau.movielocker.utils.DataDummy
+import com.sinau.movielocker.data.source.Repository
+import com.sinau.movielocker.data.source.local.entity.MovieEntity
+import com.sinau.movielocker.data.source.local.entity.TvShowEntity
 
-class DetailViewModel : ViewModel() {
-    private var movieId: Int = 0
-    private var tvShowId: Int = 0
+class DetailViewModel(private val repository: Repository) : ViewModel() {
+    private var id: Int = 0
 
-    fun setSelectedMovie(itemId: Int) {
-        this.movieId = itemId
+    fun setSelectedItem(itemId: Int) {
+        this.id = itemId
     }
 
-    fun setSelectedTvShow(itemId: Int) {
-        this.tvShowId = itemId
-    }
+    fun getMovie(): LiveData<MovieEntity> = repository.getDetailMovie(id)
 
-    fun getMovie(): MovieEntity {
-        lateinit var movie: MovieEntity
-        val movieEntities = DataDummy.generateDummyMovie()
-        for (movies in movieEntities) {
-            if (movies.movieId == movieId) {
-                movie = movies
-            }
-        }
-        return movie
-    }
-
-    fun getTvShow(): TvShowEntity {
-        lateinit var tvShow: TvShowEntity
-        val tvShowEntities = DataDummy.generateDummyTvShow()
-        for (tvShows in tvShowEntities) {
-            if (tvShows.tvShowId == tvShowId) {
-                tvShow = tvShows
-            }
-        }
-        return tvShow
-    }
+    fun getTvShow(): LiveData<TvShowEntity> = repository.getDetailTvShow(id)
 }

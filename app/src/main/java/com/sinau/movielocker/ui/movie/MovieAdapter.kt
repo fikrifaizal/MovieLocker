@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.sinau.movielocker.BuildConfig
 import com.sinau.movielocker.R
-import com.sinau.movielocker.data.MovieEntity
+import com.sinau.movielocker.data.source.local.entity.MovieEntity
 import com.sinau.movielocker.databinding.MovieItemsBinding
 import com.sinau.movielocker.ui.detail.DetailActivity
 
@@ -26,7 +27,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                 tvTitle.text = movie.title
                 tvRating.text = movie.voteAverage.toString()
                 Glide.with(itemView.context)
-                    .load(movie.posterPath)
+                    .load(BuildConfig.POSTER_URL + movie.posterPath)
                     .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
                     .error(R.drawable.ic_error)
                     .into(ivPoster)

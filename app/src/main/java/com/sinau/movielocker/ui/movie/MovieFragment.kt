@@ -1,5 +1,6 @@
 package com.sinau.movielocker.ui.movie
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinau.movielocker.databinding.FragmentMovieBinding
+import com.sinau.movielocker.viewmodel.ViewModelFactory
 
 class MovieFragment : Fragment() {
     private var _binding: FragmentMovieBinding? = null
@@ -19,14 +21,20 @@ class MovieFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val movieViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
-            val movies = movieViewModel.getMovies()
-
+            val factory = ViewModelFactory.getInstance()
+            val movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
             val movieAdapter = MovieAdapter()
-            movieAdapter.setMovie(movies)
+
+            movieViewModel.getMovies().observe(viewLifecycleOwner, {movies ->
+                binding.progressBar.visibility = View.GONE
+                binding.rvMovie.visibility = View.VISIBLE
+                movieAdapter.setMovie(movies)
+                movieAdapter.notifyDataSetChanged()
+            })
 
             with(binding.rvMovie) {
                 layoutManager = LinearLayoutManager(context)
