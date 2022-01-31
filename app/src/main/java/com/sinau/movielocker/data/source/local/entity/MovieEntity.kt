@@ -1,16 +1,12 @@
-package com.sinau.movielocker.data
+package com.sinau.movielocker.data.source.local.entity
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
 data class MovieEntity(
     var movieId: Int,
     var title: String,
     var overview: String,
     var releaseDate: String,
-    var duration: String,
+    var runtime: Int,
     var posterPath: String,
     var backdropPath: String,
     var voteAverage: Double
-) : Parcelable
+)

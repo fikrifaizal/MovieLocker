@@ -1,11 +1,11 @@
-package com.sinau.movielocker.data
+package com.sinau.movielocker.data.source.local.entity
 
 data class TvShowEntity(
     var tvShowId: Int,
-    var title: String,
+    var name: String,
     var overview: String,
-    var releaseDate: String,
-    var duration: String,
+    var firstAirDate: String,
+    var episodeRunTime: Int,
     var posterPath: String,
     var backdropPath: String,
     var voteAverage: Double
