@@ -32,11 +32,17 @@ class RemoteDataSource {
                     call: Call<MovieItemsResponse>,
                     response: Response<MovieItemsResponse>
                 ) {
-                    response.body()?.let { callback.onAllMoviesReceived(it.results) }
-                    EspressoIdlingResource.decrement()
+                    if (response.isSuccessful) {
+                        response.body()?.let { callback.onAllMoviesReceived(it.results) }
+                        EspressoIdlingResource.decrement()
+                    } else {
+                        Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
+                        EspressoIdlingResource.decrement()
+                    }
                 }
 
                 override fun onFailure(call: Call<MovieItemsResponse>, t: Throwable) {
+                    Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
                     EspressoIdlingResource.decrement()
                 }
             })
@@ -50,14 +56,19 @@ class RemoteDataSource {
                     call: Call<MovieResponse>,
                     response: Response<MovieResponse>
                 ) {
-                    response.body()?.let { callback.onDetailMovieReceived(it) }
-                    EspressoIdlingResource.decrement()
+                    if (response.isSuccessful) {
+                        response.body()?.let { callback.onDetailMovieReceived(it) }
+                        EspressoIdlingResource.decrement()
+                    } else {
+                        Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
+                        EspressoIdlingResource.decrement()
+                    }
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+                    Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
                     EspressoIdlingResource.decrement()
                 }
-
             })
     }
 
@@ -69,14 +80,19 @@ class RemoteDataSource {
                     call: Call<TvShowItemsResponse>,
                     response: Response<TvShowItemsResponse>
                 ) {
-                    response.body()?.let { callback.onAllTvShowsReceived(it.results) }
-                    EspressoIdlingResource.decrement()
+                    if (response.isSuccessful) {
+                        response.body()?.let { callback.onAllTvShowsReceived(it.results) }
+                        EspressoIdlingResource.decrement()
+                    } else {
+                        Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
+                        EspressoIdlingResource.decrement()
+                    }
                 }
 
                 override fun onFailure(call: Call<TvShowItemsResponse>, t: Throwable) {
+                    Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
                     EspressoIdlingResource.decrement()
                 }
-
             })
     }
 
@@ -88,15 +104,19 @@ class RemoteDataSource {
                     call: Call<TvShowResponse>,
                     response: Response<TvShowResponse>
                 ) {
-                    response.body()?.let { callback.onDetailTvShowReceived(it) }
-                    EspressoIdlingResource.decrement()
+                    if (response.isSuccessful) {
+                        response.body()?.let { callback.onDetailTvShowReceived(it) }
+                        EspressoIdlingResource.decrement()
+                    } else {
+                        Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
+                        EspressoIdlingResource.decrement()
+                    }
                 }
 
                 override fun onFailure(call: Call<TvShowResponse>, t: Throwable) {
                     Log.e(ContentValues.TAG, "onFailure: ${t.message.toString()}")
                     EspressoIdlingResource.decrement()
                 }
-
             })
     }
 

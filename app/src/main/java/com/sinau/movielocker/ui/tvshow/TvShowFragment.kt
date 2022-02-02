@@ -29,11 +29,12 @@ class TvShowFragment : Fragment() {
             val tvShowViewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
             val tvShowAdapter = TvShowAdapter()
 
+            onLoading(true)
+
             tvShowViewModel.getTvShows().observe(viewLifecycleOwner, {tvShows ->
-                binding.progressBar.visibility = View.GONE
-                binding.rvTvShow.visibility = View.VISIBLE
                 tvShowAdapter.setTvShow(tvShows)
                 tvShowAdapter.notifyDataSetChanged()
+                onLoading(false)
             })
 
             with(binding.rvTvShow) {
@@ -47,5 +48,15 @@ class TvShowFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun onLoading(condition: Boolean) {
+        if (condition) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.rvTvShow.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.rvTvShow.visibility = View.VISIBLE
+        }
     }
 }

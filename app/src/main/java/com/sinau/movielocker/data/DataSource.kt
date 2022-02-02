@@ -1,4 +1,4 @@
-package com.sinau.movielocker.data.source
+package com.sinau.movielocker.data
 
 import androidx.lifecycle.LiveData
 import com.sinau.movielocker.data.source.local.entity.TvShowEntity

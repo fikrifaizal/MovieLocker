@@ -1,4 +1,4 @@
-package com.sinau.movielocker.data.source
+package com.sinau.movielocker.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -27,14 +27,18 @@ class Repository private constructor(private var remoteDataSource: RemoteDataSou
                 val allMovies = ArrayList<MovieEntity>()
                 for (response in movieResponse) {
                     with(response) {
+                        // agar tidak error saat data null
+                        val poster = posterPath ?: ""
+                        val backdrop = backdropPath ?: ""
+
                         val movie = MovieEntity(
                             id,
                             title,
                             overview,
                             releaseDate,
-                            duration,
-                            posterPath,
-                            backdropPath,
+                            0,
+                            poster,
+                            backdrop,
                             voteAverage
                         )
                         allMovies.add(movie)
@@ -53,16 +57,18 @@ class Repository private constructor(private var remoteDataSource: RemoteDataSou
                 val allTvShows = ArrayList<TvShowEntity>()
                 for (response in tvShowResponse) {
                     with(response) {
-                        // episodeRunTime dibuat 0 karena dalam API tv popular tidak ada datanya
-                        // menghindari error juga >_<
+                        // agar tidak error saat data null
+                        val poster = posterPath ?: ""
+                        val backdrop = backdropPath ?: ""
+
                         val tvShow = TvShowEntity(
                             id,
                             name,
                             overview,
                             firstAirDate,
                             0,
-                            posterPath,
-                            backdropPath,
+                            poster,
+                            backdrop,
                             voteAverage
                         )
                         allTvShows.add(tvShow)
@@ -79,14 +85,19 @@ class Repository private constructor(private var remoteDataSource: RemoteDataSou
         remoteDataSource.getDetailMovie(id, object : RemoteDataSource.LoadDetailMovieCallback {
             override fun onDetailMovieReceived(movieResponse: MovieResponse) {
                 with(movieResponse) {
+                    // agar tidak error saat data null
+                    val poster = posterPath ?: ""
+                    val backdrop = backdropPath ?: ""
+                    val overview = overview ?: "-"
+
                     val data = MovieEntity(
                         id,
                         title,
                         overview,
                         releaseDate,
                         duration,
-                        posterPath,
-                        backdropPath,
+                        poster,
+                        backdrop,
                         voteAverage
                     )
                     detailMovie.postValue(data)
@@ -101,14 +112,19 @@ class Repository private constructor(private var remoteDataSource: RemoteDataSou
         remoteDataSource.getDetailTvShow(id, object : RemoteDataSource.LoadDetailTvShowCallback {
             override fun onDetailTvShowReceived(tvShowResponse: TvShowResponse) {
                 with(tvShowResponse) {
+                    // agar tidak error saat data null
+                    val poster = posterPath ?: ""
+                    val backdrop = backdropPath ?: ""
+                    val overview = overview ?: "-"
+
                     val data = TvShowEntity(
                         id,
                         name,
                         overview,
                         firstAirDate,
                         episodeRunTime.average().toInt(),
-                        posterPath,
-                        backdropPath,
+                        poster,
+                        backdrop,
                         voteAverage
                     )
                     detailTvShow.postValue(data)

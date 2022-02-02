@@ -2,6 +2,8 @@ package com.sinau.movielocker.utils
 
 import com.sinau.movielocker.data.source.local.entity.MovieEntity
 import com.sinau.movielocker.data.source.local.entity.TvShowEntity
+import com.sinau.movielocker.data.source.remote.response.movie.MovieResponse
+import com.sinau.movielocker.data.source.remote.response.tvshow.TvShowResponse
 
 object DataDummy {
 
@@ -10,146 +12,135 @@ object DataDummy {
 
         movies.add(
             MovieEntity(
-            399579,
-            "Alita",
-            "Ketika Alita terbangun tanpa ingatan tentang siapa dia di dunia masa depan yang tidak dia kenal, dia ditangkap oleh Ido, seorang dokter yang penuh kasih yang menyadari bahwa di suatu tempat dalam cangkang cyborg yang ditinggalkan ini adalah hati dan jiwa seorang wanita muda dengan luar biasa.",
-            "14/02/2019",
-            122,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xRWht48C2V8XNfzvPehyClOvDni.jpg",
-            "https://www.themoviedb.org/t/p/original/8RKBHHRqOMOLh5qW3sS6TSFTd8h.jpg",
-            7.2
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            297802,
-            "Aquaman",
-            "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne.",
-            "26/12/2018",
-            143,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xLPffWMhMj1l50ND3KchMjYoKmE.jpg",
-            "https://www.themoviedb.org/t/p/original/9QusGjxcYvfPD1THg6oW3RLeNn7.jpg",
-            6.9
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            424694,
-            "Bohemian Rhapsody",
-            "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.",
-            "30/10/2018",
-            135,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg",
-            "https://www.themoviedb.org/t/p/original/jNUpYq2jRSwQM89vST9yQZelMSu.jpg",
-            8.0
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            438650,
-            "Cold Pursuit",
-            "The quiet family life of Nels Coxman, a snowplow driver, is upended after his son's murder. Nels begins a vengeful hunt for Viking, the drug lord he holds responsible for the killing, eliminating Viking's associates one by one. As Nels draws closer to Viking, his actions bring even more unexpected and violent consequences, as he proves that revenge is all in the execution.",
-            "08/02/2019",
-            119,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hXgmWPd1SuujRZ4QnKLzrj79PAw.jpg",
-            "https://www.themoviedb.org/t/p/original/aiM3XxYE2JvW1vJ4AC6cI1RjAoT.jpg",
-            5.7
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            166428,
-            "How to Train Your Dragon: The Hidden World",
-            "Ketika Hiccup memenuhi mimpinya untuk menciptakan utopia naga yang damai, penemuan Toothless 'dari pasangan yang tak teruji dan sukar ditangkap membuat Night Fury menjauh. Ketika bahaya meningkat di rumah dan pemerintahan Hiccup sebagai kepala desa diuji, baik naga dan pengendara harus membuat keputusan yang mustahil untuk menyelamatkan jenis mereka.",
-            "09/01/2019",
-            104,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/bCYRgsT0Kndh23a6kHazBdXWCn1.jpg",
-            "https://www.themoviedb.org/t/p/original/lFwykSz3Ykj1Q3JXJURnGUTNf1o.jpg",
-            7.8
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            299536,
-            "Avengers: Infinity War",
-            "Karena Avengers dan sekutunya terus melindungi dunia dari ancaman yang terlalu besar untuk ditangani oleh seorang pahlawan, bahaya baru telah muncul dari bayangan kosmik: Thanos. Seorang lalim penghujatan intergalaksi, tujuannya adalah untuk mengumpulkan semua enam Batu Infinity, artefak kekuatan yang tak terbayangkan, dan menggunakannya untuk menimbulkan kehendak memutar pada semua realitas. Segala sesuatu yang telah diperjuangkan oleh Avengers telah berkembang hingga saat ini - nasib Bumi dan keberadaannya sendiri tidak pernah lebih pasti.",
-            "27/04/2018",
-            149,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
-            "https://www.themoviedb.org/t/p/original/lmZFxXgJE3vgrciwuDib0N8CfQo.jpg",
-            8.3
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            428078,
-            "Mortal Engines",
-            "Many thousands of years in the future, Earth’s cities roam the globe on huge wheels, devouring each other in a struggle for ever diminishing resources. On one of these massive traction cities, the old London, Tom Natsworthy has an unexpected encounter with a mysterious young woman from the wastelands who will change the course of his life forever.",
-            "14/12/2018",
-            129,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gLhYg9NIvIPKVRTtvzCWnp1qJWG.jpg",
-            "https://www.themoviedb.org/t/p/original/rm2oMykm5nX6SzXFr7TGHkO6r8Z.jpg",
-            6.2
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            438799,
-            "Overlord",
-            "France, June 1944. On the eve of D-Day, some American paratroopers fall behind enemy lines after their aircraft crashes while on a mission to destroy a radio tower in a small village near the beaches of Normandy. After reaching their target, the surviving paratroopers realise that, in addition to fighting the Nazi troops that patrol the village, they also must fight against something else.",
-            "09/11/2018",
-            110,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/l76Rgp32z2UxjULApxGXAPpYdAP.jpg",
-            "https://www.themoviedb.org/t/p/original/sHNC8hjAu4ZKXYhG3cp8ghRZ02B.jpg",
-            6.7
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            404368,
-            "Ralph Breaks the Internet",
-            "Petualangan Baru Ralph dan Vanellope akan berlanjut dalam Ralph Breaks the Internet. 6 tahun pasca Wreck-It Ralph, Ralph dan Vanellope kini semakin jauh menjelajah ke dunia maya.",
-            "21/11/2018",
-            112,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/44cb3fCGKUaSxxIjI2ejrgeYfye.jpg",
-            "https://www.themoviedb.org/t/p/original/qDQEQbgP3v7B9IYLAUcYexNrVYP.jpg",
-            7.2
-        )
-        )
-
-        movies.add(
-            MovieEntity(
-            324857,
-            "Spider-Man: Into the Spider-Verse",
-            "Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson \"Kingpin\" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.",
-            "14/12/2018",
-            117,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3cZn1k8x0bikrDKEy9ZKJ6Vdj30.jpg",
-            "https://www.themoviedb.org/t/p/original/7d6EY00g1c39SGZOoCJ5Py9nNth.jpg",
+            634649,
+            "Spider-Man: No Way Home",
+            "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+            "2021-12-15",
+            148,
+            "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+            "/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg",
             8.4
-        )
-        )
+        ))
 
         movies.add(
             MovieEntity(
-            505954,
-            "T-34",
-            "In 1944, a courageous group of Russian soldiers managed to escape from German captivity in a half-destroyed legendary T-34 tank. Those were the times of unforgettable bravery, fierce fighting, unbreakable love, and legendary miracles.",
-            "01/01/2019",
-            139,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3nag9eCEMIo4yVZD7sKLodEPe8T.jpg",
-            "https://www.themoviedb.org/t/p/original/3QVSM3DYxvov57j25vxDNJGHUpQ.jpg",
-            7.0
-        )
-        )
+            524434,
+            "Eternals",
+            "The Eternals are a team of ancient aliens who have been living on Earth in secret for thousands of years. When an unexpected tragedy forces them out of the shadows, they are forced to reunite against mankind’s most ancient enemy, the Deviants.",
+            "2021-11-03",
+            156,
+            "/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg",
+            "/k2twTjSddgLc1oFFHVibfxp2kQV.jpg",
+            7.3
+        ))
+
+        movies.add(
+            MovieEntity(
+            585083,
+            "Hotel Transylvania: Transformania",
+            "When Van Helsing's mysterious invention, the 'Monsterfication Ray', goes haywire, Drac and his monster pals are all transformed into humans, and Johnny becomes a monster. In their new mismatched bodies, Drac and Johnny must team up and race across the globe to find a cure before it's too late, and before they drive each other crazy.",
+            "2022-01-13",
+            87,
+            "/teCy1egGQa0y8ULJvlrDHQKnxBL.jpg",
+            "/m3Ys7UDzUzOyoPYKzp4GhKKokUr.jpg",
+            7.6
+        ))
+
+        movies.add(
+            MovieEntity(
+            568124,
+            "Encanto",
+            "The tale of an extraordinary family, the Madrigals, who live hidden in the mountains of Colombia, in a magical house, in a vibrant town, in a wondrous, charmed place called an Encanto. The magic of the Encanto has blessed every child in the family with a unique gift from super strength to the power to heal—every child except one, Mirabel. But when she discovers that the magic surrounding the Encanto is in danger, Mirabel decides that she, the only ordinary Madrigal, might just be her exceptional family's last hope.",
+            "2021-11-24",
+            102,
+            "/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg",
+            "/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+            7.8
+        ))
+
+        movies.add(
+            MovieEntity(
+            438695,
+            "Sing 2",
+            "Buster and his new cast now have their sights set on debuting a new show at the Crystal Tower Theater in glamorous Redshore City. But with no connections, he and his singers must sneak into the Crystal Entertainment offices, run by the ruthless wolf mogul Jimmy Crystal, where the gang pitches the ridiculous idea of casting the lion rock legend Clay Calloway in their show. Buster must embark on a quest to find the now-isolated Clay and persuade him to return to the stage.",
+            "2021-12-01",
+            110,
+            "/aWeKITRFbbwY8txG5uCj4rMCfSP.jpg",
+            "/tutaKitJJIaqZPyMz7rxrhb4Yxm.jpg",
+            8.3
+        ))
+
+        movies.add(
+            MovieEntity(
+            425909,
+            "Ghostbusters: Afterlife",
+            "When a single mom and her two kids arrive in a small town, they begin to discover their connection to the original Ghostbusters and the secret legacy their grandfather left behind.",
+            "2021-11-11",
+            124,
+            "/sg4xJaufDiQl7caFEskBtQXfD4x.jpg",
+            "/EnDlndEvw6Ptpp8HIwmRcSSNKQ.jpg",
+            7.7
+        ))
+
+        movies.add(
+            MovieEntity(
+            860623,
+            "Last Man Down",
+            "After civilization succumbs to a deadly pandemic and his wife is murdered, a special forces soldier abandons his duty and becomes a hermit in the Nordic wilderness. Years later, a wounded woman appears on his doorstep. She's escaped from a lab and her pursuers believe her blood is the key to a worldwide cure. He's hesitant to get involved, but all doubts are cast aside when he discovers her pursuer is none other than Commander Stone, the man that murdered his wife some years ago.",
+            "2021-10-19",
+            87,
+            "/4B7liCxNCZIZGONmAMkCnxVlZQV.jpg",
+            "/t4To8feUSysyBs4tlBAbXIrKlCv.jpg",
+            6.7
+        ))
+
+        movies.add(
+            MovieEntity(
+            460458,
+            "Resident Evil: Welcome to Raccoon City",
+            "Once the booming home of pharmaceutical giant Umbrella Corporation, Raccoon City is now a dying Midwestern town. The company’s exodus left the city a wasteland…with great evil brewing below the surface. When that evil is unleashed, the townspeople are forever…changed…and a small group of survivors must work together to uncover the truth behind Umbrella and make it through the night.",
+            "2021-11-24",
+            107,
+            "/7uRbWOXxpWDMtnsd2PF3clu65jc.jpg",
+            "/o76ZDm8PS9791XiuieNB93UZcRV.jpg",
+            6.1
+        ))
+
+        movies.add(
+            MovieEntity(
+            624860,
+            "The Matrix Resurrections",
+            "Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.",
+            "2021-12-16",
+            148,
+            "/8c4a8kE7PizaGQQnditMmI1xbRp.jpg",
+            "/eNI7PtK6DEYgZmHWP9gQNuff8pv.jpg",
+            6.8
+        ))
+
+        movies.add(
+            MovieEntity(
+            580489,
+            "Venom: Let There Be Carnage",
+            "After finding a host body in investigative reporter Eddie Brock, the alien symbiote must face a new enemy, Carnage, the alter ego of serial killer Cletus Kasady.",
+            "2021-09-30",
+            97,
+            "/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+            "/vIgyYkXkg6NC2whRbYjBD7eb3Er.jpg",
+            7.1
+        ))
+
+        movies.add(
+            MovieEntity(
+            811592,
+            "One Shot",
+            "An elite squad of Navy SEALs, on a covert mission to transport a prisoner off a CIA black site island prison, are trapped when insurgents attack while trying to rescue the same prisoner.",
+            "2021-11-05",
+            97,
+            "/3OXiTjU30gWtqxmx4BU9RVp2OTv.jpg",
+            "/srJ7haOhfykoPOYPQrstOaFem08.jpg",
+            6.8
+        ))
 
         return movies
     }
@@ -159,133 +150,201 @@ object DataDummy {
 
         tvShow.add(
             TvShowEntity(
-            1412,
-            "The Arrow",
-            "Arrow adalah menceritakan kembali petualangan dari legendaris DC pahlawan Green Arrow.",
-            "10/10/2012",
-            42,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gKG5QGz5Ngf8fgWpBsWtlg5L2SF.jpg",
-            "https://www.themoviedb.org/t/p/original/vNnLAKmoczRlNarxyGrrw0KSOeX.jpg",
-            6.7
-        )
-        )
+            85552,
+            "Euphoria",
+            "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
+            "2019-06-16",
+            60,
+            "/jtnfNzqZwN4E32FGGxx1YZaBWWf.jpg",
+            "/oKt4J3TFjWirVwBqoHyIvv5IImd.jpg",
+            8.4
+        ))
 
         tvShow.add(
             TvShowEntity(
-            79501,
-            "Doom Patrol",
-            "The Doom Patrol’s members each suffered horrible accidents that gave them superhuman abilities — but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence — and to protect Earth from what they find.",
-            "15/02/2019",
-            49,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kOAn06LmRCg4YiSStwrGL6UOQ3a.jpg",
-            "https://www.themoviedb.org/t/p/original/kkgomBlNN9UvPhNGQmVMpOwAnXG.jpg",
-            7.7
-        )
-        )
-
-        tvShow.add(
-            TvShowEntity(
-            12971,
-            "Dragon Ball (ドラゴンボール)",
-            "Dahulu kala di pegunungan, seorang master pertempuran yang dikenal sebagai Gohan menemukan seorang bocah aneh yang ia beri nama Goku. Gohan membesarkannya dan melatih Goku dalam seni bela diri sampai dia mati. Bocah muda dan sangat kuat itu sendirian, tetapi mudah dikelola. Kemudian suatu hari, Goku bertemu dengan seorang gadis remaja bernama Bulma, yang pencariannya untuk bola naga membawanya ke rumah Goku. Bersama-sama, mereka berangkat untuk menemukan ketujuh bola naga dalam sebuah petualangan yang akan mengubah hidup Goku selamanya. Lihat bagaimana Goku bertemu teman-teman seumur hidupnya Bulma, Yamcha, Krillin, Master Roshi dan banyak lagi.",
-            "26/02/1986",
-            26,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/n7WLT6AEcwBtDhIfxjBOBAU9FAV.jpg",
-            "https://www.themoviedb.org/t/p/original/nokCMxb0u5YtLsu7RGs4oUiA8DK.jpg",
-            8.2
-        )
-        )
-
-        tvShow.add(
-            TvShowEntity(
-            46261,
-            "Fairy Tail (フェアリーテイル)",
-            "Lucy is a 17-year-old girl, who wants to be a full-fledged mage. One day when visiting Harujion Town, she meets Natsu, a young man who gets sick easily by any type of transportation. But Natsu isn't just any ordinary kid, he's a member of one of the world's most infamous mage guilds: Fairy Tail.",
-            "12/11/2009",
-            25,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/r6SjKZSsVbdwVZhdutu4qvRe63c.jpg",
-            "https://www.themoviedb.org/t/p/original/fANxNeH9JCXPrzNEfriGu1Y95dF.jpg",
-            7.8
-        )
-        )
-
-        tvShow.add(
-            TvShowEntity(
-            1434,
-            "Family Guy",
-            "Seri animasi animasi Freakin 'Sweet yang sakit, terpelintir, dan salah, menampilkan petualangan keluarga Griffin yang disfungsional. Peter yang kikuk dan Lois yang sudah lama menderita memiliki tiga anak. Stewie (bayi yang brilian tetapi sadis yang bertekad membunuh ibunya dan mengambil alih dunia), Meg (yang tertua, dan merupakan gadis yang paling tidak populer di kota) dan Chris (anak tengah, dia tidak terlalu cerdas tetapi memiliki hasrat untuk film ). Anggota terakhir keluarga itu adalah Brian - anjing yang bisa bicara dan lebih dari sekadar hewan peliharaan, ia menjaga Stewie, sementara menghirup Martinis dan memilah-milah masalah hidupnya sendiri.",
-            "31/01/1999",
-            22,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/k9DaMmzL1cRkHbxrCBlP9rb9B5B.jpg",
-            "https://www.themoviedb.org/t/p/original/jbTqU6BJMufoMnPSlO4ThrcXs3Y.jpg",
-            7.1
-        )
-        )
-
-        tvShow.add(
-            TvShowEntity(
-            1416,
-            "Grey's Anatomy",
-            "Ikuti kehidupan pribadi dan profesional sekelompok dokter di Rumah Sakit Gray Sloan Memorial di Seattle.",
-            "27/03/2005",
-            43,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/clnyhPqj1SNgpAdeSS6a6fwE6Bo.jpg",
-            "https://www.themoviedb.org/t/p/original/zWX629wryQwpaIwsquP4BRUD6HT.jpg",
-            8.2
-        )
-        )
-
-        tvShow.add(
-            TvShowEntity(
-            54155,
-            "Hanna",
-            "This thriller and coming-of-age drama follows the journey of an extraordinary young girl as she evades the relentless pursuit of an off-book CIA agent and tries to unearth the truth behind who she is. Based on the 2011 Joe Wright film.",
-            "28/03/2019",
-            50,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iYUtjx1EN4SVTgxd2TB4cZTGSQb.jpg",
-            "https://www.themoviedb.org/t/p/original/ufTMyMIdns5cbbBRgMKHrNIXYvM.jpg",
-            7.6
-        )
-        )
-
-        tvShow.add(
-            TvShowEntity(
-            62127,
-            "Marvel's Iron Fist",
-            "Danny Rand resurfaces 15 years after being presumed dead. Now, with the power of the Iron Fist, he seeks to reclaim his past and fulfill his destiny.",
-            "17/03/2017",
-            55,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7uCpMX3ktMdztlezDBRiMstmapC.jpg",
-            "https://www.themoviedb.org/t/p/original/usaahoewrcCAD0fFOb9DoUg8hOR.jpg",
-            6.6
-        )
-        )
-
-        tvShow.add(
-            TvShowEntity(
-            31910,
-            "Naruto Shippuden",
-            "Naruto Shippuuden adalah kelanjutan dari serial TV animasi asli Naruto. Kisah ini berkisah tentang Uzumaki Naruto yang lebih tua dan sedikit lebih matang dan upayanya untuk menyelamatkan temannya Uchiha Sasuke dari cengkeraman Shinobi seperti ular, Orochimaru. Setelah 2 setengah tahun, Naruto akhirnya kembali ke desanya Konoha, dan mulai mewujudkan ambisinya, meskipun itu tidak akan mudah, karena Ia telah mengumpulkan beberapa musuh (lebih berbahaya), seperti organisasi shinobi. ; Akatsuki.",
-            "15/02/2007",
-            25,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qOxedwaJzdms2alAmIEHEnDeDzg.jpg",
-            "https://www.themoviedb.org/t/p/original/z6ES1hCbLozoquj5wilidrtKBPp.jpg",
+            110492,
+            "Peacemaker",
+            "The continuing story of Peacemaker – a compellingly vainglorious man who believes in peace at any cost, no matter how many people he has to kill to get it – in the aftermath of the events of “The Suicide Squad.”",
+            "2022-01-13",
+            46,
+            "/hE3LRZAY84fG19a18pzpkZERjTE.jpg",
+            "/ctxm191q5o3axFzQsvNPlbKoSYv.jpg",
             8.6
-        )
-        )
+        ))
 
         tvShow.add(
             TvShowEntity(
-            456,
-            "Simpsons",
-            "Bertempat di Springfield, kota rata-rata di Amerika, pertunjukan ini berfokus pada kejenakaan dan petualangan sehari-hari keluarga Simpson; Homer, Marge, Bart, Lisa dan Maggie, serta ribuan pemain virtual. Sejak awal, serial ini telah menjadi ikon budaya pop, menarik ratusan selebriti menjadi bintang tamu. Acara ini juga menjadi terkenal karena satirnya yang tak kenal takut terhadap kehidupan politik, media, dan Amerika secara umum.",
-            "17/12/1989",
-            22,
-            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/k5UALlcA0EnviaCUn2wMjOWYiOO.jpg",
-            "https://www.themoviedb.org/t/p/original/hpU2cHC9tk90hswCFEpf5AtbqoL.jpg",
-            7.9
-        )
-        )
+            115036,
+            "The Book of Boba Fett",
+            "Legendary bounty hunter Boba Fett and mercenary Fennec Shand must navigate the galaxy’s underworld when they return to the sands of Tatooine to stake their claim on the territory once ruled by Jabba the Hutt and his crime syndicate.",
+            "2021-12-29",
+            46,
+            "/gNbdjDi1HamTCrfvM9JeA94bNi2.jpg",
+            "/sjx6zjQI2dLGtEL0HGWsnq6UyLU.jpg",
+            8.1
+        ))
+
+        tvShow.add(
+            TvShowEntity(
+            99966,
+            "All of Us Are Dead",
+            "A high school becomes ground zero for a zombie virus outbreak. Trapped students must fight their way out — or turn into one of the rabid infected.",
+            "2022-01-28",
+            61,
+            "/ze4lhw0oLBHYmlM2KuZjBg0Sq6H.jpg",
+            "/8Xs20y8gFR0W9u8Yy9NKdpZtSu7.jpg",
+            8.4
+        ))
+
+        tvShow.add(
+            TvShowEntity(
+            153748,
+            "Big Brother Famosos",
+            "Big Brother Famosos is the celebrity version of Big Brother Portugal.",
+            "2002-09-08",
+            60,
+            "/ynFd1Xmr2r05qPqalNZnh2uxuJ0.jpg",
+            "/z18KvDvFftrNyAMPOVFHkt8Bj8E.jpg",
+            4.5
+        ))
+
+        tvShow.add(
+            TvShowEntity(
+            966,
+            "Hollyoaks",
+            "The daily soap that follows the loves, lives and misdemeanours of a group of people living in the Chester village of Hollyoaks where anything could, and frequently does, happen...",
+            "1995-10-23",
+            30,
+            "/bpmLMZP3M1vLujPqHnOTnKVjRJY.jpg",
+            "/r8CGqB8IJNbA1IruHWquS7YttNB.jpg",
+            5.2
+        ))
+
+        tvShow.add(
+            TvShowEntity(
+            116416,
+            "Big Brother 7/7",
+            "",
+            "2021-01-11",
+            46,
+            "/iUYrQyv0p4UncFolsROm81VNbcB.jpg",
+            "/ykbaElzavtSbsYG5KbG3pEpREtK.jpg",
+            5.1
+        ))
+
+        tvShow.add(
+            TvShowEntity(
+            60574,
+            "Peaky Blinders",
+            "A gangster family epic set in 1919 Birmingham, England and centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby, who means to move up in the world.",
+            "2013-09-12",
+            59,
+            "/pE8CScObQURsFZ723PSW1K9EGYp.jpg",
+            "/wiE9doxiLwq3WCGamDIOb2PqBqc.jpg",
+            8.6
+        ))
+
+        tvShow.add(
+            TvShowEntity(
+            63174,
+            "Lucifer",
+            "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+            "2016-01-25",
+            53,
+            "/ekZobS8isE6mA53RAiGDG93hBxL.jpg",
+            "/ktDJ21QQscbMNQfPpZBsNORxdDx.jpg",
+            8.5
+        ))
+
+        tvShow.add(
+            TvShowEntity(
+            77169,
+            "Cobra Kai",
+            "This Karate Kid sequel series picks up 30 years after the events of the 1984 All Valley Karate Tournament and finds Johnny Lawrence on the hunt for redemption by reopening the infamous Cobra Kai karate dojo. This reignites his old rivalry with the successful Daniel LaRusso, who has been working to maintain the balance in his life without mentor Mr. Miyagi.",
+            "2018-05-02",
+            30,
+            "/6POBWybSBDBKjSs1VAQcnQC1qyt.jpg",
+            "/35SS0nlBhu28cSe7TiO3ZiywZhl.jpg",
+            8.2
+        ))
+
+        return tvShow
+    }
+
+    fun generateRemoteDummyMovie(): List<MovieResponse> {
+        val movies = ArrayList<MovieResponse>()
+
+        movies.add(MovieResponse(
+            "/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg",
+            "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+            "Spider-Man: No Way Home",
+            "2021-12-15",
+            8.4,
+            148,
+            634649,
+            "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/5MJt6g7k9gADQH4xHn5mOEMa3Vr.jpg",
+            "When Van Helsing's mysterious invention, the 'Monsterfication Ray', goes haywire, Drac and his monster pals are all transformed into humans, and Johnny becomes a monster. In their new mismatched bodies, Drac and Johnny must team up and race across the globe to find a cure before it's too late, and before they drive each other crazy.",
+            "Hotel Transylvania: Transformania",
+            "2022-01-13",
+            7.6,
+            87,
+            585083,
+            "/9nR1xIcDo84gbbNZeFb9NCZYTdw.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/k2twTjSddgLc1oFFHVibfxp2kQV.jpg",
+            "The Eternals are a team of ancient aliens who have been living on Earth in secret for thousands of years. When an unexpected tragedy forces them out of the shadows, they are forced to reunite against mankind’s most ancient enemy, the Deviants.",
+            "Eternals",
+            "2021-11-03",
+            7.2,
+            156,
+            524434,
+            "/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg"
+        ))
+
+        return movies
+    }
+
+    fun generateRemoteDummyTvShow(): List<TvShowResponse> {
+        val tvShow = ArrayList<TvShowResponse>()
+
+        tvShow.add(TvShowResponse(
+            "/oKt4J3TFjWirVwBqoHyIvv5IImd.jpg",
+            "2019-06-16",
+            "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
+            8.4,
+            "Euphoria",
+            listOf(60),
+            85552,
+            "/jtnfNzqZwN4E32FGGxx1YZaBWWf.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/ctxm191q5o3axFzQsvNPlbKoSYv.jpg",
+            "2022-01-13",
+            "The continuing story of Peacemaker – a compellingly vainglorious man who believes in peace at any cost, no matter how many people he has to kill to get it – in the aftermath of the events of “The Suicide Squad.”",
+            8.6,
+            "Peacemaker",
+            listOf(46),
+            110492,
+            "/hE3LRZAY84fG19a18pzpkZERjTE.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/sjx6zjQI2dLGtEL0HGWsnq6UyLU.jpg",
+            "2021-12-29",
+            "Legendary bounty hunter Boba Fett and mercenary Fennec Shand must navigate the galaxy’s underworld when they return to the sands of Tatooine to stake their claim on the territory once ruled by Jabba the Hutt and his crime syndicate.",
+            8.1,
+            "The Book of Boba Fett",
+            listOf(39,53),
+            115036,
+            "/gNbdjDi1HamTCrfvM9JeA94bNi2.jpg"
+        ))
 
         return tvShow
     }

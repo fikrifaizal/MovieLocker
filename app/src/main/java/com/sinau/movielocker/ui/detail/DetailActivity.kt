@@ -2,6 +2,7 @@ package com.sinau.movielocker.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -23,6 +24,8 @@ class DetailActivity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance()
         val detailViewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
+        onLoading(true)
+
         val extras = intent.extras
         if (extras != null) {
             val movieId = extras.getInt(EXTRA_MOV)
@@ -32,12 +35,14 @@ class DetailActivity : AppCompatActivity() {
                     detailViewModel.setSelectedItem(movieId)
                     detailViewModel.getMovie().observe(this, {movie ->
                         populateDetail(movie)
+                        onLoading(false)
                     })
                 }
                 extras.containsKey(EXTRA_TV) -> {
                     detailViewModel.setSelectedItem(tvShowId)
                     detailViewModel.getTvShow().observe(this, {tvShow ->
                         populateDetail(tvShow)
+                        onLoading(false)
                     })
                 }
             }
@@ -97,6 +102,30 @@ class DetailActivity : AppCompatActivity() {
             "$timeInHour h $timeInMinute m"
         } else {
             "$time m"
+        }
+    }
+
+    private fun onLoading(condition: Boolean) {
+        if (condition) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.ivBackdrop.visibility = View.GONE
+            binding.ivPoster.visibility = View.GONE
+            binding.tvTitle.visibility = View.GONE
+            binding.cvRelease.visibility = View.GONE
+            binding.cvDuration.visibility = View.GONE
+            binding.cvRating.visibility = View.GONE
+            binding.overviewTitle.visibility = View.GONE
+            binding.tvOverview.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.ivBackdrop.visibility = View.VISIBLE
+            binding.ivPoster.visibility = View.VISIBLE
+            binding.tvTitle.visibility = View.VISIBLE
+            binding.cvRelease.visibility = View.VISIBLE
+            binding.cvDuration.visibility = View.VISIBLE
+            binding.cvRating.visibility = View.VISIBLE
+            binding.overviewTitle.visibility = View.VISIBLE
+            binding.tvOverview.visibility = View.VISIBLE
         }
     }
 

@@ -29,11 +29,12 @@ class MovieFragment : Fragment() {
             val movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
             val movieAdapter = MovieAdapter()
 
+            onLoading(true)
+
             movieViewModel.getMovies().observe(viewLifecycleOwner, {movies ->
-                binding.progressBar.visibility = View.GONE
-                binding.rvMovie.visibility = View.VISIBLE
                 movieAdapter.setMovie(movies)
                 movieAdapter.notifyDataSetChanged()
+                onLoading(false)
             })
 
             with(binding.rvMovie) {
@@ -47,5 +48,15 @@ class MovieFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun onLoading(condition: Boolean) {
+        if (condition) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.rvMovie.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.rvMovie.visibility = View.VISIBLE
+        }
     }
 }

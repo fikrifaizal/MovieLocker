@@ -1,6 +1,6 @@
 package com.sinau.movielocker.di
 
-import com.sinau.movielocker.data.source.Repository
+import com.sinau.movielocker.data.Repository
 import com.sinau.movielocker.data.source.remote.RemoteDataSource
 
 object Injection {

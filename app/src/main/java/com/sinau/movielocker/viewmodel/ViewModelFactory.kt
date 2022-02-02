@@ -2,7 +2,7 @@ package com.sinau.movielocker.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sinau.movielocker.data.source.Repository
+import com.sinau.movielocker.data.Repository
 import com.sinau.movielocker.di.Injection
 import com.sinau.movielocker.ui.detail.DetailViewModel
 import com.sinau.movielocker.ui.movie.MovieViewModel
