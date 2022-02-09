@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinau.movielocker.databinding.FragmentTvShowBinding
 import com.sinau.movielocker.viewmodel.ViewModelFactory
+import com.sinau.movielocker.vo.Status
 
 class TvShowFragment : Fragment() {
     private var _binding: FragmentTvShowBinding? = null
@@ -25,16 +26,26 @@ class TvShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val factory = ViewModelFactory.getInstance()
+            val factory = ViewModelFactory.getInstance(requireActivity())
             val tvShowViewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
             val tvShowAdapter = TvShowAdapter()
 
-            onLoading(true)
-
             tvShowViewModel.getTvShows().observe(viewLifecycleOwner, {tvShows ->
-                tvShowAdapter.setTvShow(tvShows)
-                tvShowAdapter.notifyDataSetChanged()
-                onLoading(false)
+                if (tvShows != null) {
+                    when (tvShows.status) {
+                        Status.LOADING -> onLoading(true)
+                        Status.SUCCESS -> {
+                            onLoading(false)
+                            tvShowAdapter.setTvShow(tvShows.data)
+                            tvShowAdapter.notifyDataSetChanged()
+                            showStatus(true)
+                        }
+                        Status.ERROR -> {
+                            onLoading(false)
+                            showStatus(false)
+                        }
+                    }
+                }
             })
 
             with(binding.rvTvShow) {
@@ -57,6 +68,16 @@ class TvShowFragment : Fragment() {
         } else {
             binding.progressBar.visibility = View.GONE
             binding.rvTvShow.visibility = View.VISIBLE
+        }
+    }
+
+    private fun showStatus(isOnline: Boolean) {
+        if (isOnline) {
+            binding.rvTvShow.visibility = View.VISIBLE
+            binding.status.visibility = View.GONE
+        } else {
+            binding.rvTvShow.visibility = View.GONE
+            binding.status.visibility = View.VISIBLE
         }
     }
 }

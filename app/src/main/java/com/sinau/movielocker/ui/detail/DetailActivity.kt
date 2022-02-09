@@ -12,19 +12,24 @@ import com.sinau.movielocker.data.source.local.entity.MovieEntity
 import com.sinau.movielocker.data.source.local.entity.TvShowEntity
 import com.sinau.movielocker.databinding.ActivityDetailBinding
 import com.sinau.movielocker.viewmodel.ViewModelFactory
+import com.sinau.movielocker.vo.Status
+import kotlin.properties.Delegates
 
 class DetailActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityDetailBinding
+
+    private var isMovie by Delegates.notNull<Boolean>()
+    private lateinit var mMovieEntity: MovieEntity
+    private lateinit var mTvShowEntity: TvShowEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val factory = ViewModelFactory.getInstance()
+        val factory = ViewModelFactory.getInstance(this)
         val detailViewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
-
-        onLoading(true)
 
         val extras = intent.extras
         if (extras != null) {
@@ -32,19 +37,59 @@ class DetailActivity : AppCompatActivity() {
             val tvShowId = extras.getInt(EXTRA_TV)
             when {
                 extras.containsKey(EXTRA_MOV) -> {
+                    isMovie = true
                     detailViewModel.setSelectedItem(movieId)
                     detailViewModel.getMovie().observe(this, {movie ->
-                        populateDetail(movie)
-                        onLoading(false)
+                        if (movie != null) {
+                            when (movie.status) {
+                                Status.LOADING -> onLoading(true)
+                                Status.SUCCESS -> {
+                                    movie.data?.let {
+                                        populateDetail(it)
+                                        mMovieEntity = it
+                                    }
+                                    onLoading(false)
+                                    val state = movie.data?.isFavorite
+                                    state?.let { isFavorite(it) }
+                                }
+                                Status.ERROR -> {
+                                    onLoading(false)
+                                }
+                            }
+                        }
                     })
                 }
                 extras.containsKey(EXTRA_TV) -> {
+                    isMovie = false
                     detailViewModel.setSelectedItem(tvShowId)
                     detailViewModel.getTvShow().observe(this, {tvShow ->
-                        populateDetail(tvShow)
-                        onLoading(false)
+                        if (tvShow != null) {
+                            when (tvShow.status) {
+                                Status.LOADING -> onLoading(true)
+                                Status.SUCCESS -> {
+                                    tvShow.data?.let {
+                                        populateDetail(it)
+                                        mTvShowEntity = it
+                                    }
+                                    onLoading(false)
+                                    val state = tvShow.data?.isFavorite
+                                    state?.let { isFavorite(it) }
+                                }
+                                Status.ERROR -> {
+                                    onLoading(false)
+                                }
+                            }
+                        }
                     })
                 }
+            }
+        }
+
+        binding.fabFavorite.setOnClickListener {
+            if (isMovie) {
+                detailViewModel.setFavoriteMovie(mMovieEntity)
+            } else {
+                detailViewModel.setFavoriteTvShow(mTvShowEntity)
             }
         }
 
@@ -109,6 +154,7 @@ class DetailActivity : AppCompatActivity() {
         if (condition) {
             binding.progressBar.visibility = View.VISIBLE
             binding.ivBackdrop.visibility = View.GONE
+            binding.ivGradient.visibility = View.GONE
             binding.ivPoster.visibility = View.GONE
             binding.tvTitle.visibility = View.GONE
             binding.cvRelease.visibility = View.GONE
@@ -116,9 +162,11 @@ class DetailActivity : AppCompatActivity() {
             binding.cvRating.visibility = View.GONE
             binding.overviewTitle.visibility = View.GONE
             binding.tvOverview.visibility = View.GONE
+            binding.fabFavorite.visibility = View.GONE
         } else {
             binding.progressBar.visibility = View.GONE
             binding.ivBackdrop.visibility = View.VISIBLE
+            binding.ivGradient.visibility = View.VISIBLE
             binding.ivPoster.visibility = View.VISIBLE
             binding.tvTitle.visibility = View.VISIBLE
             binding.cvRelease.visibility = View.VISIBLE
@@ -126,6 +174,15 @@ class DetailActivity : AppCompatActivity() {
             binding.cvRating.visibility = View.VISIBLE
             binding.overviewTitle.visibility = View.VISIBLE
             binding.tvOverview.visibility = View.VISIBLE
+            binding.fabFavorite.visibility = View.VISIBLE
+        }
+    }
+
+    private fun isFavorite(state: Boolean) {
+        if (state) {
+            binding.fabFavorite.setImageResource(R.drawable.ic_favorite_red)
+        } else {
+            binding.fabFavorite.setImageResource(R.drawable.ic_favorite_white)
         }
     }
 

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sinau.movielocker.databinding.FragmentMovieBinding
 import com.sinau.movielocker.viewmodel.ViewModelFactory
+import com.sinau.movielocker.vo.Status
 
 class MovieFragment : Fragment() {
     private var _binding: FragmentMovieBinding? = null
@@ -25,16 +26,26 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val factory = ViewModelFactory.getInstance()
+            val factory = ViewModelFactory.getInstance(requireActivity())
             val movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
             val movieAdapter = MovieAdapter()
 
-            onLoading(true)
-
             movieViewModel.getMovies().observe(viewLifecycleOwner, {movies ->
-                movieAdapter.setMovie(movies)
-                movieAdapter.notifyDataSetChanged()
-                onLoading(false)
+                if (movies != null) {
+                    when (movies.status) {
+                        Status.LOADING -> onLoading(true)
+                        Status.SUCCESS -> {
+                            onLoading(false)
+                            movieAdapter.setMovie(movies.data)
+                            movieAdapter.notifyDataSetChanged()
+                            showStatus(true)
+                        }
+                        Status.ERROR -> {
+                            onLoading(false)
+                            showStatus(false)
+                        }
+                    }
+                }
             })
 
             with(binding.rvMovie) {
@@ -57,6 +68,16 @@ class MovieFragment : Fragment() {
         } else {
             binding.progressBar.visibility = View.GONE
             binding.rvMovie.visibility = View.VISIBLE
+        }
+    }
+
+    private fun showStatus(isOnline: Boolean) {
+        if (isOnline) {
+            binding.rvMovie.visibility = View.VISIBLE
+            binding.status.visibility = View.GONE
+        } else {
+            binding.rvMovie.visibility = View.GONE
+            binding.status.visibility = View.VISIBLE
         }
     }
 }

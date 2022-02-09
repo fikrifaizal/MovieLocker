@@ -1,10 +1,7 @@
 package com.sinau.movielocker.data.source.remote.response.movie
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class MovieResponse(
 
     @field:SerializedName("backdrop_path")
@@ -30,4 +27,4 @@ data class MovieResponse(
 
     @field:SerializedName("poster_path")
     val posterPath: String
-) : Parcelable
+)

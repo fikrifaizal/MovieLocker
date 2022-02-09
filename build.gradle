@@ -22,6 +22,9 @@ buildscript {
         // data
         retrofitVersion = '2.9.0'
         interceptorVersion = '4.9.0'
+        roomVersion = '2.2.3'
+        roomRuntimeVersion = '2.4.1'
+        pagingVersion = '2.1.1'
 
         // testing
         junitVersion = '4.13.2'

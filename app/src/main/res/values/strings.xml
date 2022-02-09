@@ -5,6 +5,8 @@
     <!--  SectionsPagerAdapter  -->
     <string name="movie">Movie</string>
     <string name="tv_show">TV Show</string>
+    <string name="favorite_movie">Favorite Movie</string>
+    <string name="favorite_tv_show">Favorite TV Show</string>
 
     <!--  ImageView contentDescription  -->
     <string name="imageview_of_poster">ImageView of Poster</string>
@@ -12,13 +14,20 @@
     <string name="imageview_of_gradient">ImageView of Gradient</string>
     <string name="icon">Icon</string>
     <string name="image_of_splashscreen">Image of Splashscreen</string>
+    <string name="icon_favorite">Icon Favorite</string>
 
     <!--  tools:text  -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
 
     <!--  Detail Activity  -->
-    <string name="release">Release Date</string>
+    <string name="release">Release</string>
     <string name="rating">Rating</string>
     <string name="duration">Duration</string>
     <string name="overview">Overview</string>
+    <string name="favorite">Favorite</string>
+
+    <!--  Status  -->
+    <string name="image_status">Image Status Internet</string>
+    <string name="status_offline">Oops, terjadi permalasahan.</string>
+    <string name="status_empty">Oops, favorit anda kosong.</string>
 </resources>

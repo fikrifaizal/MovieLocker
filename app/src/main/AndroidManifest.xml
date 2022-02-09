@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.sinau.movielocker">
+    package="com.sinau.movielocker" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,12 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieLocker"
-        tools:ignore="AllowBackup">
+        tools:ignore="AllowBackup" >
+        <activity
+            android:name=".ui.favorite.FavoriteActivity"
+            android:exported="true"
+            android:parentActivityName=".ui.home.HomeActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.home.HomeActivity" />
+        </activity>
         <activity
             android:name=".ui.splashscreen.SplashscreenActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,12 +36,11 @@
         <activity
             android:name=".ui.detail.DetailActivity"
             android:exported="true"
-            android:parentActivityName=".ui.home.HomeActivity">
+            android:parentActivityName=".ui.home.HomeActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.home.HomeActivity" />
         </activity>
         <activity android:name=".ui.home.HomeActivity" />
     </application>
-
 </manifest>

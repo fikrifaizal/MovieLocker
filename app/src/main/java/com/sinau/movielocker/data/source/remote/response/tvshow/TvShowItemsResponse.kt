@@ -1,10 +1,7 @@
 package com.sinau.movielocker.data.source.remote.response.tvshow
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
 data class TvShowItemsResponse(
 
 	@field:SerializedName("total_pages")
@@ -15,4 +12,4 @@ data class TvShowItemsResponse(
 
 	@field:SerializedName("total_results")
 	val totalResults: Int
-) : Parcelable
+)
