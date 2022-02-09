@@ -65,7 +65,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$interceptorVersion"
     implementation "androidx.room:room-runtime:$roomRuntimeVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
-    implementation "androidx.paging:paging-runtime:$pagingVersion"
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 
     // testing
     testImplementation "junit:junit:$junitVersion"

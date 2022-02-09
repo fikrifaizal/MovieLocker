@@ -1,7 +1,7 @@
 package com.sinau.movielocker.data
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.paging.*
 import com.sinau.movielocker.data.source.local.LocalDataSource
 import com.sinau.movielocker.data.source.local.entity.MovieEntity
 import com.sinau.movielocker.data.source.local.entity.TvShowEntity
@@ -28,11 +28,18 @@ class Repository private constructor(
             }
     }
 
-    override fun getAllMovies(): LiveData<Resource<List<MovieEntity>>> {
-        return object : NetworkBoundResource<List<MovieEntity>, List<MovieResponse>>(appExecutors) {
-            public override fun loadFromDb(): LiveData<List<MovieEntity>> = localDataSource.getAllMovies()
+    override fun getAllMovies(): LiveData<Resource<PagedList<MovieEntity>>> {
+        return object : NetworkBoundResource<PagedList<MovieEntity>, List<MovieResponse>>(appExecutors) {
+            public override fun loadFromDb(): LiveData<PagedList<MovieEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(4)
+                    .setPageSize(4)
+                    .build()
+                return LivePagedListBuilder(localDataSource.getAllMovies(), config).build()
+            }
 
-            override fun shouldFetch(data: List<MovieEntity>?): Boolean = data == null || data.isEmpty()
+            override fun shouldFetch(data: PagedList<MovieEntity>?): Boolean = data == null || data.isEmpty()
 
             public override fun createCall(): LiveData<ApiResponse<List<MovieResponse>>> = remoteDataSource.getAllMovies()
 
@@ -62,11 +69,18 @@ class Repository private constructor(
         }.asLiveData()
     }
 
-    override fun getAllTvShows(): LiveData<Resource<List<TvShowEntity>>> {
-        return object : NetworkBoundResource<List<TvShowEntity>, List<TvShowResponse>>(appExecutors) {
-            public override fun loadFromDb(): LiveData<List<TvShowEntity>> = localDataSource.getAllTvShows()
+    override fun getAllTvShows(): LiveData<Resource<PagedList<TvShowEntity>>> {
+        return object : NetworkBoundResource<PagedList<TvShowEntity>, List<TvShowResponse>>(appExecutors) {
+            public override fun loadFromDb(): LiveData<PagedList<TvShowEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(4)
+                    .setPageSize(4)
+                    .build()
+                return LivePagedListBuilder(localDataSource.getAllTvShows(), config).build()
+            }
 
-            override fun shouldFetch(data: List<TvShowEntity>?): Boolean = data == null || data.isEmpty()
+            override fun shouldFetch(data: PagedList<TvShowEntity>?): Boolean = data == null || data.isEmpty()
 
             public override fun createCall(): LiveData<ApiResponse<List<TvShowResponse>>> = remoteDataSource.getAllTvShows()
 
@@ -160,11 +174,23 @@ class Repository private constructor(
         }.asLiveData()
     }
 
-    override fun getFavoriteMovie(): LiveData<List<MovieEntity>> =
-        localDataSource.getFavoriteMovies()
+    override fun getFavoriteMovie(): LiveData<PagedList<MovieEntity>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localDataSource.getFavoriteMovies(), config).build()
+    }
 
-    override fun getFavoriteTvShow(): LiveData<List<TvShowEntity>> =
-        localDataSource.getFavoriteTvShows()
+    override fun getFavoriteTvShow(): LiveData<PagedList<TvShowEntity>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localDataSource.getFavoriteTvShows(), config).build()
+    }
 
     override fun setFavoriteMovie(movie: MovieEntity, state: Boolean) =
         appExecutors.diskIO().execute {

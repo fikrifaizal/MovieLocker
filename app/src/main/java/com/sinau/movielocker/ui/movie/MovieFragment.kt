@@ -36,7 +36,7 @@ class MovieFragment : Fragment() {
                         Status.LOADING -> onLoading(true)
                         Status.SUCCESS -> {
                             onLoading(false)
-                            movieAdapter.setMovie(movies.data)
+                            movieAdapter.submitList(movies.data)
                             movieAdapter.notifyDataSetChanged()
                             showStatus(true)
                         }

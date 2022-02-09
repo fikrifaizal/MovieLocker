@@ -36,7 +36,7 @@ class TvShowFragment : Fragment() {
                         Status.LOADING -> onLoading(true)
                         Status.SUCCESS -> {
                             onLoading(false)
-                            tvShowAdapter.setTvShow(tvShows.data)
+                            tvShowAdapter.submitList(tvShows.data)
                             tvShowAdapter.notifyDataSetChanged()
                             showStatus(true)
                         }

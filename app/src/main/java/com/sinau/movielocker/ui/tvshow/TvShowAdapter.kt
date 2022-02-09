@@ -3,6 +3,8 @@ package com.sinau.movielocker.ui.tvshow
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -12,15 +14,18 @@ import com.sinau.movielocker.data.source.local.entity.TvShowEntity
 import com.sinau.movielocker.databinding.MovieItemsBinding
 import com.sinau.movielocker.ui.detail.DetailActivity
 
-class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
-    private var listTvShow = ArrayList<TvShowEntity>()
+class TvShowAdapter : PagedListAdapter<TvShowEntity, TvShowAdapter.TvShowViewHolder>(DIFF_CALLBACK) {
 
-    fun setTvShow(tvShow: List<TvShowEntity>?) {
-        if (tvShow == null) return
-        this.listTvShow.clear()
-        this.listTvShow.addAll(tvShow)
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TvShowEntity>() {
+            override fun areItemsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
+                return oldItem.tvShowId == newItem.tvShowId
+            }
+            override fun areContentsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
-
 
     class TvShowViewHolder (private val binding: MovieItemsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(tvShow: TvShowEntity) {
@@ -48,9 +53,9 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: TvShowViewHolder, position: Int) {
-        val tvShow = listTvShow[position]
-        holder.bind(tvShow)
+        val tvShow = getItem(position)
+        if (tvShow != null) {
+            holder.bind(tvShow)
+        }
     }
-
-    override fun getItemCount(): Int = listTvShow.size
 }

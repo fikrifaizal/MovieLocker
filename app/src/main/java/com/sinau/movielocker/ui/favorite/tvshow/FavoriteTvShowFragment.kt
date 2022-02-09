@@ -33,7 +33,7 @@ class FavoriteTvShowFragment : Fragment() {
 
             favTvShowViewModel.getFavoriteTvShow().observe(viewLifecycleOwner, { fav ->
                 if (fav != null) {
-                    tvShowAdapter.setTvShow(fav)
+                    tvShowAdapter.submitList(fav)
                     tvShowAdapter.notifyDataSetChanged()
                     showStatus(true)
                 } else {

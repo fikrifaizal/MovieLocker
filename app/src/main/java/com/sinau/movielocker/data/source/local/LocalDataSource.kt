@@ -1,6 +1,7 @@
 package com.sinau.movielocker.data.source.local
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import com.sinau.movielocker.data.source.local.entity.MovieEntity
 import com.sinau.movielocker.data.source.local.entity.TvShowEntity
 import com.sinau.movielocker.data.source.local.room.MovieDao
@@ -14,15 +15,15 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
             INSTANCE ?: LocalDataSource(movieDao)
     }
 
-    fun getAllMovies(): LiveData<List<MovieEntity>> = mMovieDao.getMovies()
+    fun getAllMovies(): DataSource.Factory<Int, MovieEntity> = mMovieDao.getMovies()
 
-    fun getFavoriteMovies(): LiveData<List<MovieEntity>> = mMovieDao.getFavoriteMovies()
+    fun getFavoriteMovies(): DataSource.Factory<Int, MovieEntity> = mMovieDao.getFavoriteMovies()
 
     fun getDetailMovieById(id: Int): LiveData<MovieEntity> = mMovieDao.getDetailMovie(id)
 
-    fun getAllTvShows(): LiveData<List<TvShowEntity>> = mMovieDao.getTvShows()
+    fun getAllTvShows(): DataSource.Factory<Int, TvShowEntity> = mMovieDao.getTvShows()
 
-    fun getFavoriteTvShows(): LiveData<List<TvShowEntity>> = mMovieDao.getFavoriteTvShows()
+    fun getFavoriteTvShows(): DataSource.Factory<Int, TvShowEntity> = mMovieDao.getFavoriteTvShows()
 
     fun getDetailTvShowById(id: Int): LiveData<TvShowEntity> = mMovieDao.getDetailTvShow(id)
 

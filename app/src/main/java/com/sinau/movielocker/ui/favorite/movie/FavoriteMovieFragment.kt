@@ -33,7 +33,7 @@ class FavoriteMovieFragment : Fragment() {
 
             favMovieViewModel.getFavoriteMovie().observe(viewLifecycleOwner, { fav ->
                 if (fav != null) {
-                    movieAdapter.setMovie(fav)
+                    movieAdapter.submitList(fav)
                     movieAdapter.notifyDataSetChanged()
                     showStatus(true)
                 } else {

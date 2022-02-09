@@ -1,6 +1,7 @@
 package com.sinau.movielocker.data.source.local.room
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.*
 import com.sinau.movielocker.data.source.local.entity.MovieEntity
 import com.sinau.movielocker.data.source.local.entity.TvShowEntity
@@ -9,19 +10,19 @@ import com.sinau.movielocker.data.source.local.entity.TvShowEntity
 interface MovieDao {
 
     @Query("SELECT * FROM movieentities")
-    fun getMovies() : LiveData<List<MovieEntity>>
+    fun getMovies() : DataSource.Factory<Int, MovieEntity>
 
     @Query("SELECT * FROM movieentities WHERE isFavorite = 1")
-    fun getFavoriteMovies() : LiveData<List<MovieEntity>>
+    fun getFavoriteMovies() : DataSource.Factory<Int, MovieEntity>
 
     @Query("SELECT * FROM movieentities WHERE movieId = :id")
     fun getDetailMovie(id: Int) : LiveData<MovieEntity>
 
     @Query("SELECT * FROM tvshowentities")
-    fun getTvShows() : LiveData<List<TvShowEntity>>
+    fun getTvShows() : DataSource.Factory<Int, TvShowEntity>
 
     @Query("SELECT * FROM tvshowentities WHERE isFavorite = 1")
-    fun getFavoriteTvShows() : LiveData<List<TvShowEntity>>
+    fun getFavoriteTvShows() : DataSource.Factory<Int, TvShowEntity>
 
     @Query("SELECT * FROM tvshowentities WHERE tvShowId = :id")
     fun getDetailTvShow(id: Int) : LiveData<TvShowEntity>
