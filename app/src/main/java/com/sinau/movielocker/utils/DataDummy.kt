@@ -12,14 +12,14 @@ object DataDummy {
 
         movies.add(
             MovieEntity(
-            634649,
-            "Spider-Man: No Way Home",
-            "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
-            "2021-12-15",
-            148,
-            "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
-            "/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg",
-            8.4
+            425909,
+            "Ghostbusters: Afterlife",
+            "When a single mom and her two kids arrive in a small town, they begin to discover their connection to the original Ghostbusters and the secret legacy their grandfather left behind.",
+            "2021-11-11",
+            124,
+            "/sg4xJaufDiQl7caFEskBtQXfD4x.jpg",
+            "/EnDlndEvw6Ptpp8HIwmRcSSNKQ.jpg",
+            7.7
         ))
 
         movies.add(
@@ -150,6 +150,18 @@ object DataDummy {
 
         tvShow.add(
             TvShowEntity(
+                966,
+                "Hollyoaks",
+                "The daily soap that follows the loves, lives and misdemeanours of a group of people living in the Chester village of Hollyoaks where anything could, and frequently does, happen...",
+                "1995-10-23",
+                30,
+                "/bpmLMZP3M1vLujPqHnOTnKVjRJY.jpg",
+                "/r8CGqB8IJNbA1IruHWquS7YttNB.jpg",
+                5.2
+            ))
+
+        tvShow.add(
+            TvShowEntity(
             85552,
             "Euphoria",
             "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
@@ -210,18 +222,6 @@ object DataDummy {
 
         tvShow.add(
             TvShowEntity(
-            966,
-            "Hollyoaks",
-            "The daily soap that follows the loves, lives and misdemeanours of a group of people living in the Chester village of Hollyoaks where anything could, and frequently does, happen...",
-            "1995-10-23",
-            30,
-            "/bpmLMZP3M1vLujPqHnOTnKVjRJY.jpg",
-            "/r8CGqB8IJNbA1IruHWquS7YttNB.jpg",
-            5.2
-        ))
-
-        tvShow.add(
-            TvShowEntity(
             116416,
             "Big Brother 7/7",
             "",
@@ -275,6 +275,39 @@ object DataDummy {
         val movies = ArrayList<MovieResponse>()
 
         movies.add(MovieResponse(
+            "/EnDlndEvw6Ptpp8HIwmRcSSNKQ.jpg",
+            "When a single mom and her two kids arrive in a small town, they begin to discover their connection to the original Ghostbusters and the secret legacy their grandfather left behind.",
+            "Ghostbusters: Afterlife",
+            "2021-11-11",
+            7.7,
+            124,
+            425909,
+            "/sg4xJaufDiQl7caFEskBtQXfD4x.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/p3ajeXwrCczDh8eYsT8ryTvvfwm.jpg",
+            "An ex-NYPD officer-turned-sheriff of a small rural Georgia town has to contend with a gang of thieves who have taken a wealthy doctor hostage.",
+            "American Siege",
+            "2022-01-07",
+            5.0,
+            90,
+            766907,
+            "/daeVrgyj0ue8qb3AHyU3UeCwoZz.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/dK12GIdhGP6NPGFssK2Fh265jyr.jpg",
+            "An Interpol-issued Red Notice is a global alert to hunt and capture the world's most wanted. But when a daring heist brings together the FBI's top profiler and two rival criminals, there's no telling what will happen.",
+            "Red Notice",
+            "2021-11-04",
+            6.8,
+            117,
+            524434,
+            "/lAXONuqg41NwUMuzMiFvicDET9Y.jpg"
+        ))
+
+        movies.add(MovieResponse(
             "/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg",
             "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
             "Spider-Man: No Way Home",
@@ -305,6 +338,61 @@ object DataDummy {
             156,
             524434,
             "/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/3G1Q5xF40HkUBJXxt2DQgQzKTp5.jpg",
+            "The tale of an extraordinary family, the Madrigals, who live hidden in the mountains of Colombia, in a magical house, in a vibrant town, in a wondrous, charmed place called an Encanto. The magic of the Encanto has blessed every child in the family with a unique gift from super strength to the power to heal—every child except one, Mirabel. But when she discovers that the magic surrounding the Encanto is in danger, Mirabel decides that she, the only ordinary Madrigal, might just be her exceptional family's last hope.",
+            "Encanto",
+            "2021-11-24",
+            7.8,
+            102,
+            568124,
+            "/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/tutaKitJJIaqZPyMz7rxrhb4Yxm.jpg",
+            "Buster and his new cast now have their sights set on debuting a new show at the Crystal Tower Theater in glamorous Redshore City. But with no connections, he and his singers must sneak into the Crystal Entertainment offices, run by the ruthless wolf mogul Jimmy Crystal, where the gang pitches the ridiculous idea of casting the lion rock legend Clay Calloway in their show. Buster must embark on a quest to find the now-isolated Clay and persuade him to return to the stage.",
+            "Sing 2",
+            "2021-12-01",
+            8.3,
+            110,
+            438695,
+            "/aWeKITRFbbwY8txG5uCj4rMCfSP.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/t4To8feUSysyBs4tlBAbXIrKlCv.jpg",
+            "After civilization succumbs to a deadly pandemic and his wife is murdered, a special forces soldier abandons his duty and becomes a hermit in the Nordic wilderness. Years later, a wounded woman appears on his doorstep. She's escaped from a lab and her pursuers believe her blood is the key to a worldwide cure. He's hesitant to get involved, but all doubts are cast aside when he discovers her pursuer is none other than Commander Stone, the man that murdered his wife some years ago.",
+            "Last Man Down",
+            "2021-10-19",
+            6.7,
+            87,
+            860623,
+            "/4B7liCxNCZIZGONmAMkCnxVlZQV.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/srJ7haOhfykoPOYPQrstOaFem08.jpg",
+            "An elite squad of Navy SEALs, on a covert mission to transport a prisoner off a CIA black site island prison, are trapped when insurgents attack while trying to rescue the same prisoner.",
+            "One Shot",
+            "2021-11-05",
+            6.8,
+            97,
+            811592,
+            "/3OXiTjU30gWtqxmx4BU9RVp2OTv.jpg"
+        ))
+
+        movies.add(MovieResponse(
+            "/o76ZDm8PS9791XiuieNB93UZcRV.jpg",
+            "Once the booming home of pharmaceutical giant Umbrella Corporation, Raccoon City is now a dying Midwestern town. The company’s exodus left the city a wasteland…with great evil brewing below the surface. When that evil is unleashed, the townspeople are forever…changed…and a small group of survivors must work together to uncover the truth behind Umbrella and make it through the night.",
+            "Resident Evil: Welcome to Raccoon City",
+            "2021-11-24",
+            6.1,
+            107,
+            460458,
+            "/7uRbWOXxpWDMtnsd2PF3clu65jc.jpg"
         ))
 
         return movies
@@ -344,6 +432,83 @@ object DataDummy {
             listOf(39,53),
             115036,
             "/gNbdjDi1HamTCrfvM9JeA94bNi2.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/8Xs20y8gFR0W9u8Yy9NKdpZtSu7.jpg",
+            "2022-01-28",
+            "A high school becomes ground zero for a zombie virus outbreak. Trapped students must fight their way out — or turn into one of the rabid infected.",
+            8.8,
+            "All of Us Are Dead",
+            listOf(60),
+            99966,
+            "/pTEFqAjLd5YTsMD6NSUxV6Dq7A6.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/r8CGqB8IJNbA1IruHWquS7YttNB.jpg",
+            "1995-10-23",
+            "The daily soap that follows the loves, lives and misdemeanours of a group of people living in the Chester village of Hollyoaks where anything could, and frequently does, happen...",
+            5.2,
+            "Hollyoaks",
+            listOf(30),
+            966,
+            "/bpmLMZP3M1vLujPqHnOTnKVjRJY.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/pkOSjcllDSs4WP9i8DGkw9VgF5Q.jpg",
+            "2015-07-06",
+            "",
+            7.7,
+            "Wer weiß denn sowas?",
+            listOf(45),
+            63452,
+            "/abKjah96esLWObidBcWmvKJv61E.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/pkKUW6wk2yfPc66YF7647ARi6uv.jpg",
+            "2009-10-05",
+            "Audience members dress up in outlandish costumes to get host Wayne Brady's attention in an attempt to make deals for trips, prizes, cars or cash, while trying to avoid the dreaded Zonks.",
+            5.5,
+            "Let's Make a Deal",
+            listOf(0),
+            114439,
+            "/8lQkzJCwPpB0P6GieQeojUOW6PU.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/4tYspgwxmK2XRjhi71tuY6R2iGv.jpg",
+            "2020-07-15",
+            "Married Alma spends a fateful weekend away from home that ignites passion, ends in tragedy and leads her to question the truth about those close to her.",
+            7.3,
+            "Dark Desire",
+            listOf(35),
+            105214,
+            "/uxFNAo2A6ZRcgNASLk02hJUbybn.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/vjcuLy14kxgxCaBToAudZWrGQQh.jpg",
+            "2021-01-18",
+            "Three lucky contestants put their pop culture knowledge to the test to complete iconic, People Puzzler crosswords. The player with the most points at the end of three rounds wins the game and goes on to play the \"Fast Puzzle Round\" for an enormous cash prize.",
+            5.5,
+            "People Puzzler",
+            listOf(23),
+            117031,
+            "/gELQSCY5KKIGQAmOHbcgcRGNlp5.jpg"
+        ))
+
+        tvShow.add(TvShowResponse(
+            "/l6zdjUDOaklBWfxqa7AtbLr2EnA.jpg",
+            "2021-12-13",
+            "A drama depicting a sweet twist in love between the parents and children of three families around the love of two main characters.",
+            4.5,
+            "Love Twist",
+            listOf(30),
+            135753,
+            "/5bTF522eYn6g6r7aYqFpTZzmQq6.jpg"
         ))
 
         return tvShow
