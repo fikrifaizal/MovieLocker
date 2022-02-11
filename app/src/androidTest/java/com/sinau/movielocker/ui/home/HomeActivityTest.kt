@@ -5,6 +5,7 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.pressBack
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -86,6 +87,84 @@ class HomeActivityTest {
         onView(withId(R.id.cv_release)).check(matches(isDisplayed()))
         onView(withId(R.id.cv_duration)).check(matches(isDisplayed()))
         onView(withId(R.id.cv_rating)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun testfavoriteMovie() {
+        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        onView(withId(R.id.fab_favorite)).check(matches(isDisplayed()))
+        onView(withId(R.id.fab_favorite)).perform(click())
+
+        onView(isRoot()).perform(pressBack())
+        onView(withId(R.id.favorite)).perform(click())
+
+        onView(withId(R.id.rv_favorite_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_title)).check(matches(withText(dummyMovie[0].title)))
+        onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_overview)).check(matches(withText(dummyMovie[0].overview)))
+        onView(withId(R.id.tv_date)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_date)).check(matches(withText(dummyMovie[0].releaseDate)))
+        onView(withId(R.id.tv_duration)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_duration)).check(matches(withText(timeConverter(dummyMovie[0].runtime))))
+        onView(withId(R.id.tv_rating)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_rating)).check(matches(withText("${dummyMovie[0].voteAverage} / 10")))
+        onView(withId(R.id.iv_poster)).check(matches(isDisplayed()))
+        onView(withId(R.id.iv_backdrop)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_release)).check(matches(isDisplayed()))
+        onView(withId(R.id.cv_duration)).check(matches(isDisplayed()))
+        onView(withId(R.id.cv_rating)).check(matches(isDisplayed()))
+        onView(withId(R.id.fab_favorite)).perform(click())
+
+        onView(isRoot()).perform(pressBack())
+        onView(withId(R.id.status)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun testFavoriteTvShow() {
+        onView(withText(R.string.tv_show)).perform(click())
+        onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        onView(withId(R.id.fab_favorite)).check(matches(isDisplayed()))
+        onView(withId(R.id.fab_favorite)).perform(click())
+
+        onView(isRoot()).perform(pressBack())
+        onView(withId(R.id.favorite)).perform(click())
+
+        onView(withText(R.string.favorite_tv_show)).perform(click())
+        onView(withId(R.id.rv_favorite_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_title)).check(matches(withText(dummyTvShow[0].name)))
+        onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_overview)).check(matches(withText(dummyTvShow[0].overview)))
+        onView(withId(R.id.tv_date)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_date)).check(matches(withText(dummyTvShow[0].firstAirDate)))
+        onView(withId(R.id.tv_duration)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_duration)).check(matches(withText(timeConverter(dummyTvShow[0].episodeRunTime))))
+        onView(withId(R.id.tv_rating)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_rating)).check(matches(withText("${dummyTvShow[0].voteAverage} / 10")))
+        onView(withId(R.id.iv_poster)).check(matches(isDisplayed()))
+        onView(withId(R.id.iv_backdrop)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.cv_release)).check(matches(isDisplayed()))
+        onView(withId(R.id.cv_duration)).check(matches(isDisplayed()))
+        onView(withId(R.id.cv_rating)).check(matches(isDisplayed()))
+        onView(withId(R.id.fab_favorite)).perform(click())
+
+        onView(isRoot()).perform(pressBack())
+        onView(withId(R.id.status)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun getFavoriteActivity() {
+        onView(withId(R.id.favorite)).perform(click())
+        onView(withId(R.id.tabs_fav)).check(matches(isDisplayed()))
+        onView(withText(R.string.favorite_movie)).perform(click())
+        onView(withText(R.string.favorite_tv_show)).perform(click())
     }
 
     // bolehkah membuat suatu method di kelas testing?
