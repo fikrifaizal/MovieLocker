@@ -24,7 +24,7 @@ buildscript {
         interceptorVersion = '4.9.0'
         roomVersion = '2.2.3'
         roomRuntimeVersion = '2.4.1'
-        pagingVersion = '3.1.0'
+        pagingVersion = '2.1.2'
 
         // testing
         junitVersion = '4.13.2'
@@ -32,7 +32,7 @@ buildscript {
         espressoVersion = '3.4.0'
         androidTestVersion = '1.4.0'
         androidCoreTestVersion = '2.1.0'
-        mockitoVersion = '3.9.0'
+        mockitoVersion = '4.2.0'
         mockitoKotlinVersion = '2.2.0'
     }
     repositories {
