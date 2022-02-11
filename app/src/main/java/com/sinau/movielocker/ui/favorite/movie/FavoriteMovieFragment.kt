@@ -32,7 +32,7 @@ class FavoriteMovieFragment : Fragment() {
             val movieAdapter = MovieAdapter()
 
             favMovieViewModel.getFavoriteMovie().observe(viewLifecycleOwner, { fav ->
-                if (fav != null) {
+                if (fav.isNotEmpty()) {
                     movieAdapter.submitList(fav)
                     movieAdapter.notifyDataSetChanged()
                     showStatus(true)

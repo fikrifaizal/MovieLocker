@@ -32,7 +32,7 @@ class FavoriteTvShowFragment : Fragment() {
             val tvShowAdapter = TvShowAdapter()
 
             favTvShowViewModel.getFavoriteTvShow().observe(viewLifecycleOwner, { fav ->
-                if (fav != null) {
+                if (fav.isNotEmpty()) {
                     tvShowAdapter.submitList(fav)
                     tvShowAdapter.notifyDataSetChanged()
                     showStatus(true)

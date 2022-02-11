@@ -115,7 +115,7 @@ class Repository private constructor(
         return object : NetworkBoundResource<MovieEntity, MovieResponse>(appExecutors) {
             public override fun loadFromDb(): LiveData<MovieEntity> = localDataSource.getDetailMovieById(id)
 
-            override fun shouldFetch(data: MovieEntity?): Boolean = data == null
+            override fun shouldFetch(data: MovieEntity?): Boolean = data == null || data.runtime == 0
 
             public override fun createCall(): LiveData<ApiResponse<MovieResponse>> = remoteDataSource.getDetailMovie(id)
 
@@ -146,7 +146,7 @@ class Repository private constructor(
         return object : NetworkBoundResource<TvShowEntity, TvShowResponse>(appExecutors) {
             public override fun loadFromDb(): LiveData<TvShowEntity> = localDataSource.getDetailTvShowById(id)
 
-            override fun shouldFetch(data: TvShowEntity?): Boolean = data == null
+            override fun shouldFetch(data: TvShowEntity?): Boolean = data == null || data.episodeRunTime == 0
 
             public override fun createCall(): LiveData<ApiResponse<TvShowResponse>> = remoteDataSource.getDetailTvShow(id)
 
