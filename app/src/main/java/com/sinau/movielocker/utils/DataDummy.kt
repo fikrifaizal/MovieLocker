@@ -150,14 +150,14 @@ object DataDummy {
 
         tvShow.add(
             TvShowEntity(
-                966,
-                "Hollyoaks",
-                "The daily soap that follows the loves, lives and misdemeanours of a group of people living in the Chester village of Hollyoaks where anything could, and frequently does, happen...",
-                "1995-10-23",
-                30,
-                "/bpmLMZP3M1vLujPqHnOTnKVjRJY.jpg",
-                "/r8CGqB8IJNbA1IruHWquS7YttNB.jpg",
-                5.2
+                456,
+                "The Simpsons",
+                "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+                "1989-12-17",
+                22,
+                "/tubgEpjTUA7t0kejVMBsNBZDarZ.jpg",
+                "/hpU2cHC9tk90hswCFEpf5AtbqoL.jpg",
+                7.9
             ))
 
         tvShow.add(

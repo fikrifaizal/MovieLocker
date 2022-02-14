@@ -18,16 +18,6 @@ class Repository private constructor(
     private val appExecutors: AppExecutors
     ) : DataSource {
 
-    companion object {
-        @Volatile
-        private var instance: Repository? = null
-
-        fun getInstance(remoteDataSource: RemoteDataSource, localDataSource: LocalDataSource, appExecutors: AppExecutors): Repository =
-            instance ?: synchronized(this) {
-                instance ?: Repository(remoteDataSource, localDataSource, appExecutors).apply { instance = this }
-            }
-    }
-
     override fun getAllMovies(): LiveData<Resource<PagedList<MovieEntity>>> {
         return object : NetworkBoundResource<PagedList<MovieEntity>, List<MovieResponse>>(appExecutors) {
             public override fun loadFromDb(): LiveData<PagedList<MovieEntity>> {
@@ -48,8 +38,7 @@ class Repository private constructor(
                 for (response in data) {
                     with(response) {
                         // agar tidak error saat data null
-                        val poster = posterPath ?: ""
-                        val backdrop = backdropPath ?: ""
+                        val backdrop = backdropPath
 
                         val movie = MovieEntity(
                             id,
@@ -57,7 +46,7 @@ class Repository private constructor(
                             overview,
                             releaseDate,
                             0,
-                            poster,
+                            posterPath,
                             backdrop,
                             voteAverage
                         )
@@ -89,8 +78,7 @@ class Repository private constructor(
                 for (response in data) {
                     with(response) {
                         // agar tidak error saat data null
-                        val poster = posterPath ?: ""
-                        val backdrop = backdropPath ?: ""
+                        val backdrop = backdropPath
 
                         val tvShow = TvShowEntity(
                             id,
@@ -98,7 +86,7 @@ class Repository private constructor(
                             overview,
                             firstAirDate,
                             0,
-                            poster,
+                            posterPath,
                             backdrop,
                             voteAverage
                         )
@@ -122,9 +110,8 @@ class Repository private constructor(
             public override fun saveCallResult(data: MovieResponse) {
                 with(data) {
                     // agar tidak error saat data null
-                    val poster = posterPath ?: ""
-                    val backdrop = backdropPath ?: ""
-                    val newOverview = overview ?: "-"
+                    val backdrop = backdropPath
+                    val newOverview = overview
 
                     val detailMovie = MovieEntity(
                         id,
@@ -132,7 +119,7 @@ class Repository private constructor(
                         newOverview,
                         releaseDate,
                         duration,
-                        poster,
+                        posterPath,
                         backdrop,
                         voteAverage
                     )
@@ -153,9 +140,8 @@ class Repository private constructor(
             public override fun saveCallResult(data: TvShowResponse) {
                 with(data) {
                     // agar tidak error saat data null
-                    val poster = posterPath ?: ""
-                    val backdrop = backdropPath ?: ""
-                    val newOverview = overview ?: "-"
+                    val backdrop = backdropPath
+                    val newOverview = overview
 
                     val detailTvShow = TvShowEntity(
                         id,
@@ -163,7 +149,7 @@ class Repository private constructor(
                         newOverview,
                         firstAirDate,
                         episodeRunTime.average().toInt(),
-                        poster,
+                        posterPath,
                         backdrop,
                         voteAverage
                     )
@@ -201,4 +187,14 @@ class Repository private constructor(
         appExecutors.diskIO().execute {
             localDataSource.setFavoriteTvShow(tvShow, state)
         }
+
+    companion object {
+        @Volatile
+        private var instance: Repository? = null
+
+        fun getInstance(remoteDataSource: RemoteDataSource, localDataSource: LocalDataSource, appExecutors: AppExecutors): Repository =
+            instance ?: synchronized(this) {
+                instance ?: Repository(remoteDataSource, localDataSource, appExecutors).apply { instance = this }
+            }
+    }
 }

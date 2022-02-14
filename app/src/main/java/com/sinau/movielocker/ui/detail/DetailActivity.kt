@@ -103,41 +103,48 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun populateDetail(movieEntity: MovieEntity) {
-        binding.tvTitle.text = movieEntity.title
-        binding.tvOverview.text = movieEntity.overview
-        binding.tvDate.text = movieEntity.releaseDate
-        binding.tvDuration.text = timeConverter(movieEntity.runtime)
-        val rating = movieEntity.voteAverage.toString() + " / 10"
-        binding.tvRating.text = rating
-        Glide.with(this)
-            .load(BuildConfig.POSTER_URL + movieEntity.posterPath)
-            .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
-            .error(R.drawable.ic_error)
-            .into(binding.ivPoster)
-        Glide.with(this)
-            .load(BuildConfig.BACKDROP_URL + movieEntity.backdropPath)
-            .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
-            .error(R.drawable.ic_error)
-            .into(binding.ivBackdrop)
+        binding.apply {
+            tvTitle.text = movieEntity.title
+            tvOverview.text = movieEntity.overview
+            tvDate.text = movieEntity.releaseDate
+            tvDuration.text = timeConverter(movieEntity.runtime)
+
+            val rating = movieEntity.voteAverage.toString() + " / 10"
+            tvRating.text = rating
+            Glide.with(this@DetailActivity)
+                .load(BuildConfig.POSTER_URL + movieEntity.posterPath)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
+                .error(R.drawable.ic_error)
+                .into(ivPoster)
+            Glide.with(this@DetailActivity)
+                .load(BuildConfig.BACKDROP_URL + movieEntity.backdropPath)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
+                .error(R.drawable.ic_error)
+                .into(ivBackdrop)
+        }
     }
 
     private fun populateDetail(tvShowEntity: TvShowEntity) {
-        binding.tvTitle.text = tvShowEntity.name
-        binding.tvOverview.text = tvShowEntity.overview
-        binding.tvDate.text = tvShowEntity.firstAirDate
-        binding.tvDuration.text = timeConverter(tvShowEntity.episodeRunTime)
-        val rating = tvShowEntity.voteAverage.toString() + " / 10"
-        binding.tvRating.text = rating
-        Glide.with(this)
-            .load(BuildConfig.POSTER_URL + tvShowEntity.posterPath)
-            .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
-            .error(R.drawable.ic_error)
-            .into(binding.ivPoster)
-        Glide.with(this)
-            .load(BuildConfig.BACKDROP_URL + tvShowEntity.backdropPath)
-            .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
-            .error(R.drawable.ic_error)
-            .into(binding.ivBackdrop)
+        binding.apply {
+            tvTitle.text = tvShowEntity.name
+            tvOverview.text = tvShowEntity.overview
+            tvDate.text = tvShowEntity.firstAirDate
+            tvDuration.text = timeConverter(tvShowEntity.episodeRunTime)
+
+            val rating = tvShowEntity.voteAverage.toString() + " / 10"
+            tvRating.text = rating
+            Glide.with(this@DetailActivity)
+                .load(BuildConfig.POSTER_URL + tvShowEntity.posterPath)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
+                .error(R.drawable.ic_error)
+                .into(ivPoster)
+            Glide.with(this@DetailActivity)
+                .load(BuildConfig.BACKDROP_URL + tvShowEntity.backdropPath)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
+                .error(R.drawable.ic_error)
+                .into(ivBackdrop)
+        }
+
     }
 
     private fun timeConverter(time: Int) : String {
@@ -151,30 +158,32 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun onLoading(condition: Boolean) {
-        if (condition) {
-            binding.progressBar.visibility = View.VISIBLE
-            binding.ivBackdrop.visibility = View.GONE
-            binding.ivGradient.visibility = View.GONE
-            binding.ivPoster.visibility = View.GONE
-            binding.tvTitle.visibility = View.GONE
-            binding.cvRelease.visibility = View.GONE
-            binding.cvDuration.visibility = View.GONE
-            binding.cvRating.visibility = View.GONE
-            binding.overviewTitle.visibility = View.GONE
-            binding.tvOverview.visibility = View.GONE
-            binding.fabFavorite.visibility = View.GONE
-        } else {
-            binding.progressBar.visibility = View.GONE
-            binding.ivBackdrop.visibility = View.VISIBLE
-            binding.ivGradient.visibility = View.VISIBLE
-            binding.ivPoster.visibility = View.VISIBLE
-            binding.tvTitle.visibility = View.VISIBLE
-            binding.cvRelease.visibility = View.VISIBLE
-            binding.cvDuration.visibility = View.VISIBLE
-            binding.cvRating.visibility = View.VISIBLE
-            binding.overviewTitle.visibility = View.VISIBLE
-            binding.tvOverview.visibility = View.VISIBLE
-            binding.fabFavorite.visibility = View.VISIBLE
+        binding.apply {
+            if (condition) {
+                progressBar.visibility = View.VISIBLE
+                ivBackdrop.visibility = View.GONE
+                ivGradient.visibility = View.GONE
+                ivPoster.visibility = View.GONE
+                tvTitle.visibility = View.GONE
+                cvRelease.visibility = View.GONE
+                cvDuration.visibility = View.GONE
+                cvRating.visibility = View.GONE
+                overviewTitle.visibility = View.GONE
+                tvOverview.visibility = View.GONE
+                fabFavorite.visibility = View.GONE
+            } else {
+                progressBar.visibility = View.GONE
+                ivBackdrop.visibility = View.VISIBLE
+                ivGradient.visibility = View.VISIBLE
+                ivPoster.visibility = View.VISIBLE
+                tvTitle.visibility = View.VISIBLE
+                cvRelease.visibility = View.VISIBLE
+                cvDuration.visibility = View.VISIBLE
+                cvRating.visibility = View.VISIBLE
+                overviewTitle.visibility = View.VISIBLE
+                tvOverview.visibility = View.VISIBLE
+                fabFavorite.visibility = View.VISIBLE
+            }
         }
     }
 

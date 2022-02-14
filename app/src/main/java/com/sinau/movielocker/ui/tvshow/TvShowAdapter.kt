@@ -16,17 +16,6 @@ import com.sinau.movielocker.ui.detail.DetailActivity
 
 class TvShowAdapter : PagedListAdapter<TvShowEntity, TvShowAdapter.TvShowViewHolder>(DIFF_CALLBACK) {
 
-    companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TvShowEntity>() {
-            override fun areItemsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
-                return oldItem.tvShowId == newItem.tvShowId
-            }
-            override fun areContentsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
-                return oldItem == newItem
-            }
-        }
-    }
-
     class TvShowViewHolder (private val binding: MovieItemsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(tvShow: TvShowEntity) {
             with(binding) {
@@ -56,6 +45,17 @@ class TvShowAdapter : PagedListAdapter<TvShowEntity, TvShowAdapter.TvShowViewHol
         val tvShow = getItem(position)
         if (tvShow != null) {
             holder.bind(tvShow)
+        }
+    }
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TvShowEntity>() {
+            override fun areItemsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
+                return oldItem.tvShowId == newItem.tvShowId
+            }
+            override fun areContentsTheSame(oldItem: TvShowEntity, newItem: TvShowEntity): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 }

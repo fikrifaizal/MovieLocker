@@ -8,13 +8,6 @@ import com.sinau.movielocker.data.source.local.room.MovieDao
 
 class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
 
-    companion object {
-        private var INSTANCE: LocalDataSource? = null
-
-        fun getInstance(movieDao: MovieDao): LocalDataSource =
-            INSTANCE ?: LocalDataSource(movieDao)
-    }
-
     fun getAllMovies(): DataSource.Factory<Int, MovieEntity> = mMovieDao.getMovies()
 
     fun getFavoriteMovies(): DataSource.Factory<Int, MovieEntity> = mMovieDao.getFavoriteMovies()
@@ -43,5 +36,12 @@ class LocalDataSource private constructor(private val mMovieDao: MovieDao) {
     fun setFavoriteTvShow(tvShow: TvShowEntity, newState: Boolean) {
         tvShow.isFavorite = newState
         mMovieDao.updateTvShow(tvShow)
+    }
+
+    companion object {
+        private var INSTANCE: LocalDataSource? = null
+
+        fun getInstance(movieDao: MovieDao): LocalDataSource =
+            INSTANCE ?: LocalDataSource(movieDao)
     }
 }

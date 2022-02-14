@@ -34,12 +34,21 @@ class HomeActivityTest {
     @Test
     fun loadMovies() {
         onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size))
+        onView(withId(R.id.rv_movie)).perform(
+            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+                dummyMovie.size
+            )
+        )
     }
 
     @Test
     fun loadDetailMovie() {
-        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.rv_movie)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
 
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_title)).check(matches(withText(dummyMovie[0].title)))
@@ -63,13 +72,22 @@ class HomeActivityTest {
     fun loadTvShows() {
         onView(withText(R.string.tv_show)).perform(click())
         onView(withId(R.id.rv_tv_show)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size))
+        onView(withId(R.id.rv_tv_show)).perform(
+            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+                dummyTvShow.size
+            )
+        )
     }
 
     @Test
     fun loadDetailTvShow() {
         onView(withText(R.string.tv_show)).perform(click())
-        onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.rv_tv_show)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
 
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_title)).check(matches(withText(dummyTvShow[0].name)))
@@ -91,7 +109,12 @@ class HomeActivityTest {
 
     @Test
     fun testfavoriteMovie() {
-        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.rv_movie)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
 
         onView(withId(R.id.fab_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.fab_favorite)).perform(click())
@@ -99,7 +122,12 @@ class HomeActivityTest {
         onView(isRoot()).perform(pressBack())
         onView(withId(R.id.favorite)).perform(click())
 
-        onView(withId(R.id.rv_favorite_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.rv_favorite_movie)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
 
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_title)).check(matches(withText(dummyMovie[0].title)))
@@ -126,7 +154,12 @@ class HomeActivityTest {
     @Test
     fun testFavoriteTvShow() {
         onView(withText(R.string.tv_show)).perform(click())
-        onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.rv_tv_show)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
 
         onView(withId(R.id.fab_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.fab_favorite)).perform(click())
@@ -135,7 +168,12 @@ class HomeActivityTest {
         onView(withId(R.id.favorite)).perform(click())
 
         onView(withText(R.string.favorite_tv_show)).perform(click())
-        onView(withId(R.id.rv_favorite_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.rv_favorite_tv_show)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                0,
+                click()
+            )
+        )
 
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_title)).check(matches(withText(dummyTvShow[0].name)))
@@ -168,10 +206,10 @@ class HomeActivityTest {
     }
 
     // bolehkah membuat suatu method di kelas testing?
-    private fun timeConverter(time: Int) : String {
+    private fun timeConverter(time: Int): String {
         return if (time > 60) {
-            val timeInHour = time/60
-            val timeInMinute = time-(timeInHour*60)
+            val timeInHour = time / 60
+            val timeInMinute = time - (timeInHour * 60)
             "$timeInHour h $timeInMinute m"
         } else {
             "$time m"
