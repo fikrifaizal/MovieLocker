@@ -38,7 +38,7 @@ class Repository private constructor(
                 for (response in data) {
                     with(response) {
                         // agar tidak error saat data null
-                        val backdrop = backdropPath
+                        val backdrop = backdropPath ?: ""
 
                         val movie = MovieEntity(
                             id,
@@ -78,7 +78,7 @@ class Repository private constructor(
                 for (response in data) {
                     with(response) {
                         // agar tidak error saat data null
-                        val backdrop = backdropPath
+                        val backdrop = backdropPath ?: ""
 
                         val tvShow = TvShowEntity(
                             id,
@@ -110,8 +110,8 @@ class Repository private constructor(
             public override fun saveCallResult(data: MovieResponse) {
                 with(data) {
                     // agar tidak error saat data null
-                    val backdrop = backdropPath
-                    val newOverview = overview
+                    val backdrop = backdropPath ?: ""
+                    val newOverview = overview ?: "-"
 
                     val detailMovie = MovieEntity(
                         id,
@@ -140,8 +140,8 @@ class Repository private constructor(
             public override fun saveCallResult(data: TvShowResponse) {
                 with(data) {
                     // agar tidak error saat data null
-                    val backdrop = backdropPath
-                    val newOverview = overview
+                    val backdrop = backdropPath ?: ""
+                    val newOverview = overview ?: "-"
 
                     val detailTvShow = TvShowEntity(
                         id,
